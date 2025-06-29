@@ -1,80 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About – Anora Anish</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anora Anish</title>
   <style>
     body {
+      margin: 0;
       font-family: Georgia, serif;
-      max-width: 720px;
-      margin: 60px auto;
-      padding: 0 20px;
-      background-color: #fff;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #222;
+    }
+    nav {
+      background-color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+    }
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #333;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 90vh;
+      gap: 30px;
+    }
+    .image-section {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .image-section img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .text-section {
+      flex: 2;
+      font-size: 17px;
       line-height: 1.7;
     }
-    h1 {
-      font-size: 32px;
-    }
-    h2 {
-      font-size: 20px;
+    footer {
+      text-align: center;
       margin-top: 40px;
+      font-size: 14px;
+      color: #777;
     }
     a {
-      color: #005577;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      color: #1d4ed8;
     }
   </style>
 </head>
 <body>
-  <h1>About Me</h1>
 
-  <p>👋 Hello, I’m <strong>Anora Anish</strong>. I’m a first-year undergraduate student at <strong>Christ College, Irinjalakuda</strong>, Kerala, currently pursuing a <strong>Bachelor’s degree in Physics</strong> with <strong>Mathematics as my minor</strong>.</p>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="academics.html">Academic Stuff</a>
+  </nav>
 
-  <p>My academic journey has been anything but linear. From navigating competitive entrances to the experience of applying (and not getting in) to MIT, I’ve encountered my share of setbacks — but each of them shaped me. These experiences have taught me that academics isn’t only about achievements or perfect grades. It’s also about resilience, reflection, and how we transform obstacles into motivation. I hope to share that with you.</p>
+  <div class="container">
+    <div class="image-section">
+      <img src="anora.jpg" alt="Anora Anish">
+    </div>
+    <div class="text-section">
+      <h1>👋 Hello, I’m Anora Anish</h1>
 
-  <h2>🌱 Beyond Academics</h2>
-  <p>When I’m not studying, I spend my time engaging in things that nurture both my mind and spirit:</p>
-  <ul>
-    <li>Practicing <em>yoga</em></li>
-    <li>Exploring <em>Indian philosophy</em></li>
-    <li>Learning a bit of <em>coding</em></li>
-    <li>And, more often than not, <em>writing</em></li>
-  </ul>
+      <p>I’m a first-year undergraduate student at <strong>Christ College, Irinjalakuda</strong>, Kerala, currently pursuing a <strong>Bachelor’s degree in Physics</strong> with <strong>Mathematics as my minor</strong>.</p>
 
-  <h2>✍️ My Blog</h2>
-  <p>My blog is my way of thinking out loud — of turning quiet reflections into something shareable. It’s divided into three sections:</p>
+      <p>My academic journey has been anything but linear. From navigating competitive entrances to the experience of applying (and not getting in) to MIT, I’ve encountered my share of setbacks — but each of them shaped me. These experiences have taught me that academics isn’t only about achievements or perfect grades. It’s also about resilience, reflection, and how we transform obstacles into motivation. I hope to share that with you. 🌱</p>
 
-  <h3>1. Academic Blog</h3>
-  <p>I share personal insights from my academic life — not just what I’ve learned from books, but also what I’ve learned from failure, confusion, and recovery. These are stories of struggle and small triumphs, sometimes philosophical, often sincere — and always written with the hope that someone, somewhere, might find them relatable.</p>
+      <p><strong>Beyond Academics</strong><br> When I’m not studying, I spend my time engaging in things that nurture both my mind and spirit: ✦ Practicing <em>yoga</em> ✦ Exploring <em>Philosophy</em>, which continues to fascinate me ✦ Learning a bit of <em>coding</em>. And, more often than not, <em>writing</em> ✍️</p>
 
-  <h3>2. Personal Writings (Malayalam)</h3>
-  <p>Some thoughts come best in your mother tongue. This space is reserved for my personal reflections written in <em>Malayalam</em>, capturing emotions and ideas that feel more authentic in the language I grew up with.</p>
+      <p><strong>📝 My Blog Writing</strong> is my way of thinking out loud — of turning quiet reflections into something shareable. My blog is divided into three main sections:</p>
 
-  <h3>3. Personal Writings (English)</h3>
-  <p>For readers who don’t read Malayalam, I maintain an English version of my personal writings — not just translations, but often reflections that grow in parallel.</p>
+      <ul>
+        <li><strong>Academic Blog</strong>: I share personal insights from my academic life — not just what I’ve learned from books, but also what I’ve learned from failure, confusion, and recovery. These are stories of struggle and small triumphs, sometimes philosophical, often sincere — and always written with the hope that someone, somewhere, might find them relatable.</li>
+        <li><strong>Personal Writings (Malayalam)</strong>: Some thoughts come best in your mother tongue. This space is reserved for my personal reflections written in <em>Malayalam</em>, capturing emotions and ideas that feel more authentic in the language I grew up with.</li>
+        <li><strong>Personal Writings (English)</strong>: For friends and readers who don’t read Malayalam, I maintain an English version of my personal writings — not just translations, but often reflections that grow in parallel.</li>
+      </ul>
 
-  <h2>🎓 Academic Resources</h2>
-  <p>I also maintain an academic section, where I share learning materials, notes, tips, and resources that have helped me — and continue to help me — along this journey. It's a collection in progress, just like my understanding.</p>
+      <p>🎓 <strong>Academic Resources</strong><br> I also maintain an academic section, where I share learning materials, notes, tips, and resources that have helped me — and continue to help me — along this journey. It’s a collection in progress, just like my understanding.</p>
 
-  <h2>🤝 Let’s Stay Connected</h2>
-  <p>If any of this resonates with you — or if you simply want to connect — you’re always welcome to explore the rest of my site or reach out through <a href="https://www.linkedin.com/in/anora-anish-0713b1270">LinkedIn</a>. I believe in growing together, and I hope this space becomes a small part of that.</p>
-  <footer>
-    <hr>
-    <h3>🔗 Connect with Me</h3>
-    <p>
-      <a href="https://www.instagram.com/anoraanish?igsh=ZDJzYnEzanljbm1n" target="_blank">Instagram</a> |
-      <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
-      <a href="https://x.com/anora_anish?t=caKt72V4z-24tTyBPYGc2Q&s=09" target="_blank">Twitter (X)</a> |
-      <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
-      <a href="https://substack.com/@anoraanish?utm_source=share&utm_medium=android&r=5t70bj" target="_blank">Substack</a>
-    </p>
-    <p style="font-size: 14px; color: #999;">© 2025 Anora Anish</p>
-  </footer>
+      <p>🤝 <strong>Let’s Stay Connected</strong><br> If any of this resonates with you — or if you simply want to connect — you’re always welcome to explore the rest of my site or reach out through the links below.</p>
+
+      <footer>
+        <p>
+          <strong>🔗 Connect:</strong>
+          <a href="https://github.com/anora-anish" target="_blank">GitHub</a> |
+          <a href="mailto:your.email@example.com">Email</a> |
+          <a href="https://www.instagram.com/anoraanish" target="_blank">Instagram</a> |
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
+          <a href="https://x.com/anora_anish" target="_blank">Twitter</a> |
+          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
+          <a href="https://substack.com/@anoraanish" target="_blank">Substack</a>
+        </p>
+        <p>© 2025 Anora Anish</p>
+      </footer>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -36,13 +36,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       position: relative;
       backdrop-filter: blur(10px);
       background-color: rgba(255, 255, 255, 0.3);
+      overflow-y: auto;
+      text-align: center;
     }
 
-    .section.welcome {
-      margin-top: 80px;
+    .section-content {
+      max-width: 700px;
+    }
+
+    .section-content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    .section-content p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #111;
     }
 
     .welcome {
@@ -72,7 +87,7 @@
 
     .text-content h1 {
       font-size: 2.5rem;
-      margin: 3rem 0 1rem;
+      margin-bottom: 2rem;
       color: #000;
       text-align: center;
     }
@@ -233,13 +248,17 @@
   <div class="container" id="scrollContainer">
 
     <div class="section resources">
-      <h1>Academic Resources</h1>
-      <p>Study materials, notes, and curated links.</p>
+      <div class="section-content">
+        <h1>Academic Resources</h1>
+        <p>Study materials, notes, and curated links.</p>
+      </div>
     </div>
 
     <div class="section outreach">
-      <h1>Research & Outreach</h1>
-      <p>My work beyond the classroom – collaborations, talks, and more.</p>
+      <div class="section-content">
+        <h1>Research & Outreach</h1>
+        <p>My work beyond the classroom – collaborations, talks, and more.</p>
+      </div>
     </div>
 
     <div class="section welcome">
@@ -247,38 +266,37 @@
       <div class="text-content">
         <h1>Hi There 👋</h1>
         <p>I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
-
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
-
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
-
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
-
         <p>Thank you for stopping by !!!</p>
-
-        <div class="footer">
-          <div>
-            <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-            <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
-          </div>
-          <p>&copy; 2025 Anora Anish. All rights reserved.</p>
+      </div>
+      <div class="footer">
+        <div>
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
+          <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
         </div>
+        <p>&copy; 2025 Anora Anish. All rights reserved.</p>
       </div>
     </div>
 
     <div class="section about">
-      <h1>About Me</h1>
-      <p>Student | Writer | Physics Enthusiast</p>
+      <div class="section-content">
+        <h1>About Me</h1>
+        <p>Student | Writer | Physics Enthusiast</p>
+      </div>
     </div>
 
     <div class="section blog">
-      <h1>Blog</h1>
-      <p>Academic notes, Malayalam and English personal writings</p>
+      <div class="section-content">
+        <h1>Blog</h1>
+        <p>Academic notes and Personal writings</p>
+      </div>
     </div>
 
   </div>

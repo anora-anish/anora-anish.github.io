@@ -2,116 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anora Anish</title>
-   <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="google-site-verification" content="O7-NC_1xA7VLcwkMTQkovux_NuibM2SnxKCfQ6CUtO8" />
-    <meta name="description" content="Anora Anish | Physics student at Christ College, Kerala. Blog, academic interests, writings, and more.">
-  <meta name="keywords" content="Anora Anish, Physics, Student, Blog, Kerala, Christ College, Writing, GitHub Pages">
-  <meta name="author" content="Anora Anish">
-
-  
   <style>
-    body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-blend-mode: multiply;
-  color: #222;
-}
-    nav {
-      background-color: rgba(255, 255, 255, 0.85);
-      text-align: center;
-      padding: 15px;
-      font-size: 18px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #333;
-    }
-    nav a:hover {
-      text-decoration: underline;
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('bg.png') no-repeat center center fixed;
+      background-size: cover;
     }
     .container {
       display: flex;
-      flex-direction: row;
-      padding: 40px;
-      background-color: rgba(255, 255, 255, 0.9);
-      min-height: 90vh;
-      gap: 30px;
+      width: 500vw; /* 5 sections */
+      height: 100vh;
+      transition: transform 1s ease-in-out;
+      transform: translateX(-100vw); /* Center on welcome section */
     }
-    .image-section {
-      flex: 1;
+    .section {
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      flex-shrink: 0;
       display: flex;
-      align-items: flex-start;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      position: relative;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.4);
     }
-    .image-section img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    .resources { }
+    .outreach { }
+    .welcome, .about {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
     }
-    .text-section {
-      flex: 2;
-      font-size: 17px;
-      line-height: 1.7;
+    .welcome img, .about img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
-    footer {
+    .text-content {
+      max-width: 500px;
       text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
     }
-    a {
-      color: #1d4ed8;
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 15px;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav button:hover {
+      color: #4a148c;
+    }
+    nav button span {
+      font-size: 0.75rem;
+    }
+    .transition-label {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .transition-label.show {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
+  <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
-    <a href="about.html">About</a>
-    <a href="blog.html">Blog</a>
-    <a href="academics.html">Academic Stuff</a>
+    <button onclick="navigateTo(0, 'Academic Resources')">📘<span>Resources</span></button>
+    <button onclick="navigateTo(1, 'Research & Outreach')">🌍<span>Outreach</span></button>
+    <button onclick="navigateTo(2, 'Welcome')">🏠<span>Welcome</span></button>
+    <button onclick="navigateTo(3, 'About Me')">👩‍🔬<span>About Me</span></button>
+    <button onclick="navigateTo(4, 'Blog')">📝<span>Blog</span></button>
   </nav>
 
-  <div class="container">
-    <div class="image-section">
-      <img src="anora.jpg" alt="Anora Anish">
+  <div class="container" id="scrollContainer">
+    <div class="section resources">
+      <h1>Academic Resources</h1>
+      <p>Study materials, notes, and curated links.</p>
     </div>
-    <div class="text-section">
-      <h1>👋 Hello, I’m Anora Anish</h1>
-
-      <p>I’m a first-year undergraduate student at <strong>Christ College, Irinjalakuda</strong>, Kerala, currently pursuing a <strong>Bachelor’s degree in Physics</strong> with <strong>Mathematics as my minor</strong>.</p>
-
-      <p>My academic journey has been anything but linear. From navigating competitive entrances to the experience of applying (and not getting in) to MIT, I’ve encountered my share of setbacks — but each of them shaped me. These experiences have taught me that academics isn’t only about achievements or perfect grades. It’s also about resilience, reflection, and how we transform obstacles into motivation. I hope to share that with you. 🌱</p>
-
-      <p><strong>Beyond Academics</strong><br> When I’m not studying, I spend my time engaging in things that nurture both my mind and spirit: ✦ Practicing <em>yoga</em> ✦ Exploring <em>Philosophy</em>, which continues to fascinate me ✦ Learning a bit of <em>coding</em>. And, more often than not, <em>writing</em> ✍️</p>
-
-     <p><strong>📝 My Blog:</strong> I use writing as a way to reflect, question, and grow. I’ve divided my blog into three sections — <a href="blog.html">Academic</a>, <a href="blog.html">Malayalam</a>, and <a href="blog.html">English</a> — each reflecting a part of my inner journey. You can read more about it on the <a href="blog.html">Blog page</a>.</p>
-
-      <p>🎓 <strong>Academic Resources</strong><br> I also maintain an academic section, where I share learning materials, notes, tips, and resources that have helped me — and continue to help me — along this journey. It’s a collection in progress, just like my understanding.</p>
-
-      <p>🤝 <strong>Let’s Stay Connected</strong><br> If any of this resonates with you — or if you simply want to connect — you’re always welcome to explore the rest of my site or reach out through the links below.</p>
-
-      <footer>
-        <p>
-          <strong>🔗 Connect:</strong>
-          <a href="https://github.com/anora-anish" target="_blank">GitHub</a> |
-          <a href="mailto:your.anoraanish1706@gmail.com">Email</a> |
-          <a href="https://www.instagram.com/anoraanish" target="_blank">Instagram</a> |
-          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
-          <a href="https://x.com/anora_anish" target="_blank">X</a> |
-          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
-          <a href="https://substack.com/@anoraanish" target="_blank">Substack</a>
-        </p>
-        <p>© 2025 Anora Anish</p>
-      </footer>
+    <div class="section outreach">
+      <h1>Research & Outreach</h1>
+      <p>My work beyond the classroom – collaborations, talks, and more.</p>
+    </div>
+    <div class="section welcome">
+      <img src="anora.png" alt="Anora Photo">
+      <div class="text-content">
+        <h1>Welcome!</h1>
+        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
+      </div>
+    </div>
+    <div class="section about">
+      <img src="anora.png" alt="Anora Photo">
+      <div class="text-content">
+        <h1>About Me</h1>
+        <p>Physics UG student | Writer | Dreamer</p>
+      </div>
+    </div>
+    <div class="section blog">
+      <h1>Blog</h1>
+      <p>Academic notes, Malayalam and English personal writings</p>
     </div>
   </div>
 
+  <script>
+    function navigateTo(sectionIndex, labelText) {
+      const container = document.getElementById('scrollContainer');
+      const label = document.getElementById('transitionLabel');
+
+      // show transition label
+      label.textContent = `Anora Anish — ${labelText}`;
+      label.classList.add('show');
+
+      // navigate
+      container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
+
+      // hide label after 2 seconds
+      setTimeout(() => {
+        label.classList.remove('show');
+      }, 2000);
+    }
+  </script>
 </body>
 </html>

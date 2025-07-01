@@ -16,7 +16,7 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: url('bg.jpg') no-repeat center center fixed;
+      background: url('transition.jpg') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -73,7 +73,6 @@
       object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 0 12px rgba(0,0,0,0.2);
-      align-self: center;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -86,11 +85,10 @@
     }
 
     .text-content h1 {
-      font-size: 2.8rem;
-      margin-bottom: 2.2rem;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
       color: #000;
       text-align: center;
-      padding-top: 20px;
     }
 
     nav {
@@ -106,7 +104,6 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      backdrop-filter: none !important;
     }
 
     nav button {
@@ -144,9 +141,11 @@
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
       pointer-events: none;
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 1rem 2rem;
+      background: url('bg.png') no-repeat center center;
+      background-size: cover;
+      padding: 2rem 3rem;
       border-radius: 10px;
+      backdrop-filter: blur(2px);
     }
 
     .transition-label.show {
@@ -161,16 +160,18 @@
       width: 100vw;
       text-align: center;
       padding: 2rem 0;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(3px);
-      margin-top: 4rem;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(5px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
 
     .footer div {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 16px;
     }
 
     .footer a {
@@ -217,8 +218,6 @@
       .welcome img {
         width: 200px;
         height: 260px;
-        border-radius: 10px;
-        align-self: center;
       }
 
       .text-content {
@@ -229,12 +228,6 @@
       .footer {
         position: static;
         padding-bottom: 3rem;
-      }
-
-      .footer div {
-        flex-direction: row;
-        justify-content: center;
-        gap: 16px;
       }
     }
   </style>
@@ -270,12 +263,12 @@
     <div class="section welcome">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
-        <h1>Welcome!</h1>
+        <h1>Hi There 👋</h1>
         <p>I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
-        <p>Thank you for stopping by.</p>
+        <p>Thank you for stopping by!</p>
       </div>
     </div>
 
@@ -292,7 +285,6 @@
         <p>Academic notes and Personal writings</p>
       </div>
     </div>
-
   </div>
 
   <div class="footer">
@@ -303,7 +295,7 @@
       <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
       <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-rss"></i></a>
+      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
     </div>
     <p>&copy; 2025 Anora Anish. All rights reserved.</p>
   </div>
@@ -339,7 +331,6 @@
     function navigateTo(sectionIndex, labelText) {
       container.classList.add('hidden');
       label.classList.add('show');
-
       animateText('ANORA ANISH', labelText, () => {
         setTimeout(() => {
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
@@ -349,6 +340,5 @@
       });
     }
   </script>
-
 </body>
 </html>

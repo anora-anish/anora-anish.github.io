@@ -15,7 +15,7 @@
     html, body {
       height: 100%;
       overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Georgia', serif;
       background: url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
     }
@@ -37,39 +37,50 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
-      backdrop-filter: blur(14px);
-      background-color: rgba(255, 255, 255, 0.55); /* Elegant tracing paper effect */
+      backdrop-filter: blur(6px);
+      background-color: rgba(255, 255, 255, 0.65); /* bright tracing-paper white */
     }
 
     .welcome {
+      display: flex;
       flex-direction: row;
-      align-items: flex-start;
       justify-content: flex-start;
+      align-items: flex-start;
       gap: 3rem;
-      padding: 4rem 6rem;
+      width: 100%;
     }
 
     .welcome img {
       width: 250px;
-      height: 300px;
+      height: 320px;
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      flex-shrink: 0;
     }
 
     .text-content {
-      flex: 1;
-      text-align: left;
-      font-size: 1.3rem;
+      max-width: 900px;
+      font-size: 1.25rem;
       color: #111;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .text-content h1 {
-      font-size: 2.7rem;
-      margin-bottom: 1.2rem;
+      font-size: 2.5rem;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+
+    .about, .blog, .resources, .outreach {
+      text-align: center;
+    }
+
+    .about img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     nav {
@@ -99,43 +110,12 @@
       gap: 5px;
     }
 
+    nav button i {
+      font-size: 1.1rem;
+    }
+
     nav button:hover {
       color: #4a148c;
-    }
-
-    .about, .resources, .outreach, .blog {
-      text-align: center;
-    }
-
-    .about h1, .resources h1, .outreach h1, .blog h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .about p, .resources p, .outreach p, .blog p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      text-align: center;
-      color: #444;
-    }
-
-    .footer a {
-      color: #333;
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: #000;
     }
 
     .transition-label {
@@ -166,42 +146,65 @@
       visibility: hidden;
     }
 
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .footer a {
+      color: #444;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .footer a:hover {
+      color: #000;
+    }
+
     @media (max-width: 768px) {
       html, body {
         overflow-x: hidden;
         overflow-y: auto;
       }
+
       .container {
         flex-direction: column;
         width: 100vw;
         height: auto;
         transform: translateX(0);
       }
+
       .section {
         width: 100vw;
         height: auto;
         padding: 3rem 1.5rem;
       }
+
       .welcome {
         flex-direction: column;
-        padding: 2rem 1.5rem;
+        align-items: center;
+        gap: 2rem;
       }
-      .welcome img {
-        width: 180px;
-        height: 220px;
-      }
+
       .text-content {
         text-align: center;
-        font-size: 1.05rem;
+        font-size: 1rem;
       }
-      .text-content h1 {
-        font-size: 2rem;
+
+      .welcome img {
+        width: 180px;
+        height: 240px;
       }
+
       .footer {
-        position: relative;
-        transform: none;
-        left: 0;
-        margin-top: 2rem;
+        font-size: 0.75rem;
+      }
+
+      .footer a {
+        font-size: 1rem;
       }
     }
   </style>
@@ -218,19 +221,16 @@
   </nav>
 
   <div class="container" id="scrollContainer">
-
     <div class="section resources">
       <h1>Academic Resources</h1>
       <p>Study materials, notes, and curated links.</p>
     </div>
-
     <div class="section outreach">
       <h1>Research & Outreach</h1>
       <p>My work beyond the classroom – collaborations, talks, and more.</p>
     </div>
-
     <div class="section welcome">
-      <img src="anora.jpg" alt="Anora Anish">
+      <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>Welcome!</h1>
         <p>Hi, I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
@@ -238,31 +238,27 @@
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
         <p>Thank you for stopping by.</p>
-      </div>
-      <div class="footer">
-        <p>
-          <a href="mailto:your.anoraanish1706@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://github.com/anora-anish" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="footer">
           <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
           <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-          <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-feather-alt"></i></a>
-        </p>
-        <p>&copy; 2025 Anora Anish</p>
+          <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-rss"></i></a>
+          <p>&copy; 2025 Anora Anish. All rights reserved.</p>
+        </div>
       </div>
     </div>
-
     <div class="section about">
-      <h1>About Me</h1>
-      <p>Student | Writer | Physics Enthusiast</p>
+      <img src="anora.jpg" alt="Anora Photo">
+      <div class="text-content">
+        <h1>About Me</h1>
+        <p>Student | Writer | Physics Enthusiast</p>
+      </div>
     </div>
-
     <div class="section blog">
       <h1>Blog</h1>
       <p>Academic notes, Malayalam and English personal writings</p>
     </div>
-
   </div>
 
   <script>

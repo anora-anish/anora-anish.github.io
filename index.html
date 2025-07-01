@@ -20,6 +20,12 @@
       background-size: cover;
     }
 
+    body.transitioning {
+      background-image: url('bg.jpg') !important;
+      background-size: cover;
+      background-position: center;
+    }
+
     .container {
       display: flex;
       width: 500vw;
@@ -68,12 +74,11 @@
     }
 
     .welcome img {
-      width: 250px;
-      height: 320px;
+      width: 260px;
+      height: 340px;
       object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 0 12px rgba(0,0,0,0.2);
-      align-self: center;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -136,15 +141,14 @@
       font-weight: bold;
       color: #000;
       text-align: center;
-      z-index: 2000;
+      z-index: 9999;
       font-family: 'Courier New', monospace;
       white-space: pre-line;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
       pointer-events: none;
-      background: url('bg.jpg') no-repeat center center;
-      background-size: cover;
-      padding: 2rem 3rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
       border-radius: 10px;
     }
 
@@ -157,21 +161,18 @@
     }
 
     .footer {
-      width: 100vw;
+      width: 100%;
       text-align: center;
       padding: 2rem 0;
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(5px);
-      position: absolute;
-      bottom: 0;
-      left: 0;
     }
 
     .footer div {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 18px;
+      flex-wrap: wrap;
     }
 
     .footer a {
@@ -252,7 +253,6 @@
   </nav>
 
   <div class="container" id="scrollContainer">
-
     <div class="section resources">
       <div class="section-content">
         <h1>Academic Resources</h1>
@@ -270,12 +270,12 @@
     <div class="section welcome">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
-        <h1>Hi There 👋</h1>
-        <p>I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
+        <h1>Welcome!</h1>
+        <p>Hi, I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
-        <p>Thank you for stopping by !!!</p>
+        <p>Thank you for stopping by.</p>
       </div>
     </div>
 
@@ -292,7 +292,6 @@
         <p>Academic notes and Personal writings</p>
       </div>
     </div>
-
   </div>
 
   <div class="footer">
@@ -303,7 +302,7 @@
       <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
       <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-rss"></i></a>
+      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
     </div>
     <p>&copy; 2025 Anora Anish. All rights reserved.</p>
   </div>
@@ -337,14 +336,17 @@
     }
 
     function navigateTo(sectionIndex, labelText) {
+      document.body.classList.add('transitioning');
       container.classList.add('hidden');
       label.classList.add('show');
+
       animateText('ANORA ANISH', labelText, () => {
         setTimeout(() => {
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
           label.classList.remove('show');
-        }, 200);
+          document.body.classList.remove('transitioning');
+        }, 500);
       });
     }
   </script>

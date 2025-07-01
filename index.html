@@ -15,7 +15,6 @@
 
     body {
       overflow: hidden;
-      background-color: #fff;
     }
 
     nav {
@@ -23,7 +22,7 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 999;
+      z-index: 1000;
       display: flex;
       background: white;
       padding: 8px 16px;
@@ -67,7 +66,8 @@
       align-items: center;
       justify-content: center;
       background: url('bg.jpg') no-repeat center center/cover;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: black;
       text-align: center;
     }
@@ -102,7 +102,7 @@
       padding: 20px;
       border-radius: 10px;
       display: none;
-      z-index: 1000;
+      z-index: 2000;
       text-align: center;
       white-space: pre-line;
     }
@@ -122,6 +122,12 @@
         width: 90%;
         left: 5%;
         transform: none;
+        padding: 10px;
+      }
+
+      nav button {
+        font-size: 0.95rem;
+        justify-content: flex-start;
       }
 
       .section img {
@@ -155,8 +161,8 @@
     <div class="section welcome">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
-        <h1>Welcome!</h1>
-        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
+        <h1>Hi There !</h1>
+        <p>I’m Anora. Explore my space of learning, reflection, and creativity.</p>
       </div>
     </div>
     <div class="section resources">
@@ -171,12 +177,12 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>About Me</h1>
-        <p>Physics UG student | Writer | Dreamer</p>
+        <p>Student | Writer | Physics Enthusiast</p>
       </div>
     </div>
     <div class="section blog">
       <h1>Blog</h1>
-      <p>Academic notes, Malayalam and English personal writings</p>
+      <p>Academic notes and Personal writings</p>
     </div>
   </div>
 
@@ -192,7 +198,7 @@
       const chars = 'ANORISH';
       let iterations = 0;
       const total = finalText.length;
-      const duration = 600; // Shorter duration
+      const duration = 1000; // 1.5 seconds
       const step = duration / total;
       const interval = setInterval(() => {
         let display = '';
@@ -221,7 +227,7 @@
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
           label.classList.remove('show');
-        }, 150); // Slight pause
+        }, 200);
       });
     }
   </script>

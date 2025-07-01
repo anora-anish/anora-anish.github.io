@@ -19,10 +19,9 @@
       background-size: cover;
       color: #111;
       scroll-behavior: smooth;
-      padding-bottom: 120px; /* space for fixed footer */
+      padding-bottom: 160px; /* ensure footer doesn’t overlap content */
     }
 
-    /* Floating Navbar */
     nav {
       position: fixed;
       top: 20px;
@@ -41,11 +40,6 @@
       user-select: none;
       backdrop-filter: saturate(180%) blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px);
-      transition: background 0.3s ease;
-    }
-
-    nav:hover {
-      background: rgba(255, 255, 255, 1);
     }
 
     nav button {
@@ -62,22 +56,19 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-weight: 700;
     }
 
     nav button i {
       font-size: 1.1rem;
     }
 
+    nav button span {
+      display: inline;
+    }
+
     nav button:hover {
       color: #4a148c;
       background-color: #f3e5f5;
-    }
-
-    nav button:focus {
-      outline: none;
-      background-color: #ce93d8;
-      color: white;
     }
 
     section {
@@ -100,13 +91,7 @@
     }
 
     .home-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 100px 2rem 4rem;
-      gap: 2rem;
-      padding-bottom: 120px; /* extra padding to avoid overlap with footer */
+      padding-bottom: 160px;
     }
 
     .welcome {
@@ -147,7 +132,6 @@
       text-align: center;
     }
 
-    /* Footer floating bar */
     .footer {
       position: fixed;
       bottom: 20px;
@@ -157,26 +141,20 @@
       border-radius: 30px;
       padding: 10px 24px;
       display: flex;
-      flex-direction: column; /* stack vertically */
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      gap: 12px; /* space between social icons and copyright */
+      gap: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       z-index: 1000;
       user-select: none;
       backdrop-filter: saturate(180%) blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px);
-      font-size: 1.2rem;
-      color: #333;
-      font-weight: 600;
-      width: auto;
-      max-width: 95vw;
     }
 
     .footer div {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
@@ -184,11 +162,11 @@
       color: #333;
       font-size: 1.5rem;
       transition: color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       width: 36px;
       height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .footer a:hover {
@@ -197,16 +175,16 @@
 
     .footer p {
       margin: 0;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #444;
       text-align: center;
-      user-select: text;
       white-space: nowrap;
     }
 
     .transition-overlay {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       background: url('bg1.jpg') no-repeat center bottom;
@@ -225,83 +203,66 @@
       text-align: center;
       font-family: 'Courier New', monospace;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      min-width: 300px;
     }
 
     .transition-label h1 {
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
-      letter-spacing: 3px;
     }
 
     .transition-label p {
       font-size: 1.1rem;
       font-weight: bold;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
 
     @media (max-width: 768px) {
-      /* Navbar - icons only, hide text */
       nav {
-        gap: 20px;
-        font-size: 1rem;
-        padding: 8px 0;
-        top: 12px;
-        padding-left: 16px;
-        padding-right: 16px;
+        gap: 16px;
+        padding: 8px 16px;
       }
 
-      nav button {
-        font-weight: normal;
-        font-size: 1.5rem;
-        gap: 0;
-        padding: 8px;
-      }
-      nav button i {
-        margin: 0;
-      }
       nav button span {
-        display: none; /* hide text */
+        display: none;
       }
 
-      /* Welcome section - vertical stack, center aligned */
       .welcome {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
+
       .welcome img {
         width: 180px;
         height: 240px;
         margin-bottom: 1rem;
       }
+
       .text-content {
         max-width: 90vw;
         font-size: 1.1rem;
       }
 
-      /* Footer adjustments for small screens */
       .footer {
-        bottom: 12px;
-        font-size: 1rem;
-        gap: 16px;
-        padding: 8px 16px;
-      }
-
-      .footer p {
-        white-space: nowrap;
+        padding: 10px 16px;
+        gap: 12px;
       }
 
       .footer div {
         gap: 14px;
+      }
+
+      .footer p {
+        font-size: 0.8rem;
+        white-space: normal;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔵 Initial Transition -->
+  <!-- Initial Transition -->
   <div class="transition-overlay" id="overlay">
     <div class="transition-label">
       <h1 id="mainName">ANORA ANISH</h1>
@@ -309,28 +270,14 @@
     </div>
   </div>
 
-  <!-- 🔵 Navbar -->
+  <!-- Navbar -->
   <nav>
-    <button><i class="fas fa-book"></i> <span>Resources</span></button>
-    <button><i class="fas fa-hands-helping"></i> <span>Outreach</span></button>
-    <button><i class="fas fa-home"></i> <span>Home</span></button>
-    <button><i class="fas fa-user"></i> <span>About</span></button>
-    <button><i class="fas fa-blog"></i> <span>Blog</span></button>
+    <button><i class="fas fa-book"></i><span>Resources</span></button>
+    <button><i class="fas fa-hands-helping"></i><span>Outreach</span></button>
+    <button><i class="fas fa-home"></i><span>Home</span></button>
+    <button><i class="fas fa-user"></i><span>About</span></button>
+    <button><i class="fas fa-blog"></i><span>Blog</span></button>
   </nav>
-
-  <!-- 🔵 Sections -->
-
-  <!-- Resources -->
-  <section id="resources">
-    <h2 class="section-title">Resources</h2>
-    <p>Coming soon: A curated list of useful academic and research resources.</p>
-  </section>
-
-  <!-- Outreach -->
-  <section id="outreach">
-    <h2 class="section-title">Outreach</h2>
-    <p>Details about my community involvement and outreach projects will be updated here.</p>
-  </section>
 
   <!-- Home Section -->
   <section class="home-section" id="home">
@@ -338,37 +285,24 @@
       <img src="anora.jpg" alt="Anora Photo" />
       <div class="text-content">
         <h1>Hi There 👋</h1>
-        <p>I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
-        <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
-        <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
-        <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
+        <p>I’m Anora Anish, a first-year undergraduate at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
+        <p>My journey spans science, writing, introspection, and curiosity. Learning happens both in classrooms and quiet moments of reflection.</p>
+        <p>This space archives my thoughts and experiments—academic and personal. If this resonates with you or you’d simply like to connect, you’re warmly welcome.</p>
         <p>Thank you for stopping by.</p>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>Hello! I’m Anora Anish, passionate about physics and writing. This website is a personal archive where I share my academic journey, thoughts, and writings. I’m currently studying physics at Christ College, Irinjalakuda, and am eager to explore research and learning opportunities.</p>
-  </section>
-
-  <!-- Blog -->
-  <section id="blog">
-    <h2 class="section-title">Blog</h2>
-    <p>My blog is divided into three main sections: Academic Blog, Personal Writings (Malayalam), and Personal Writings (English). Stay tuned for insightful posts in each category.</p>
-  </section>
-
-  <!-- 🔵 Footer -->
+  <!-- Footer -->
   <div class="footer">
     <div>
-      <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/anoraanish" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://x.com/anora_anish" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:your.anoraanish1706@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.threads.net/@anoraanish" target="_blank" aria-label="Threads"><i class="fab fa-threads"></i></a>
-      <a href="https://substack.com/@anoraanish" target="_blank" aria-label="Substack"><i class="fas fa-pen-nib"></i></a>
+      <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
+      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
     </div>
     <p>&copy; 2025 Anora Anish. All rights reserved.</p>
   </div>
@@ -376,54 +310,27 @@
   <script>
     const overlay = document.getElementById('overlay');
     const mainName = document.getElementById('mainName');
-    const subText = document.getElementById('subText');
-    const navButtons = document.querySelectorAll('nav button');
 
-    let typingTimeout;
     let i = 0;
     const nameText = "ANORA ANISH";
-
     const typingSpeed = 40;
-    const delayAfterTyping = 400;
-    const overlayHideDelay = 400;
 
-    function typeName(callback) {
-      mainName.textContent = "";
-      i = 0;
-      function type() {
-        if (i <= nameText.length) {
-          mainName.textContent = nameText.substring(0, i);
-          i++;
-          typingTimeout = setTimeout(type, typingSpeed);
-        } else {
-          setTimeout(callback, delayAfterTyping);
-        }
+    function typeName() {
+      if (i <= nameText.length) {
+        mainName.textContent = nameText.substring(0, i);
+        i++;
+        setTimeout(typeName, typingSpeed);
+      } else {
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 500);
       }
-      type();
     }
 
     window.addEventListener('load', () => {
-      typeName(() => {
-        overlay.style.display = 'none';
-      });
-    });
-
-    navButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const targetId = button.textContent.toLowerCase();
-        const targetSection = document.getElementById(targetId);
-        if (!targetSection) return;
-
-        overlay.style.display = 'flex';
-
-        typeName(() => {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => {
-            overlay.style.display = 'none';
-          }, overlayHideDelay);
-        });
-      });
+      typeName();
     });
   </script>
+
 </body>
 </html>

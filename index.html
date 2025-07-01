@@ -19,6 +19,7 @@
       background-size: cover;
       color: #111;
       scroll-behavior: smooth;
+      padding-bottom: 120px; /* space for fixed footer */
     }
 
     /* Floating Navbar */
@@ -105,6 +106,7 @@
       justify-content: center;
       padding: 100px 2rem 4rem;
       gap: 2rem;
+      padding-bottom: 120px; /* extra padding to avoid overlap with footer */
     }
 
     .welcome {
@@ -155,9 +157,10 @@
       border-radius: 30px;
       padding: 10px 24px;
       display: flex;
+      flex-direction: column; /* stack vertically */
       justify-content: center;
       align-items: center;
-      gap: 24px;
+      gap: 12px; /* space between social icons and copyright */
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       z-index: 1000;
       user-select: none;
@@ -166,12 +169,15 @@
       font-size: 1.2rem;
       color: #333;
       font-weight: 600;
+      width: auto;
+      max-width: 95vw;
     }
 
     .footer div {
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .footer a {
@@ -190,10 +196,12 @@
     }
 
     .footer p {
-      margin-left: 16px;
-      white-space: nowrap;
+      margin: 0;
       font-size: 1rem;
       color: #444;
+      text-align: center;
+      user-select: text;
+      white-space: nowrap;
     }
 
     .transition-overlay {
@@ -234,6 +242,7 @@
     }
 
     @media (max-width: 768px) {
+      /* Navbar - icons only, hide text */
       nav {
         gap: 20px;
         font-size: 1rem;
@@ -244,29 +253,35 @@
       }
 
       nav button {
-        gap: 4px;
-        font-size: 0.95rem;
-        padding: 6px 10px;
+        font-weight: normal;
+        font-size: 1.5rem;
+        gap: 0;
+        padding: 8px;
+      }
+      nav button i {
+        margin: 0;
+      }
+      nav button span {
+        display: none; /* hide text */
       }
 
+      /* Welcome section - vertical stack, center aligned */
       .welcome {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
-
       .welcome img {
-        width: 200px;
-        height: 260px;
+        width: 180px;
+        height: 240px;
+        margin-bottom: 1rem;
       }
-
       .text-content {
+        max-width: 90vw;
         font-size: 1.1rem;
-        text-align: left;
       }
 
-      .text-content h1 {
-        font-size: 2rem;
-      }
-
+      /* Footer adjustments for small screens */
       .footer {
         bottom: 12px;
         font-size: 1rem;
@@ -275,7 +290,7 @@
       }
 
       .footer p {
-        display: none; /* Hide copyright on small screens for space */
+        white-space: nowrap;
       }
 
       .footer div {
@@ -296,11 +311,11 @@
 
   <!-- 🔵 Navbar -->
   <nav>
-    <button><i class="fas fa-book"></i>Resources</button>
-    <button><i class="fas fa-hands-helping"></i>Outreach</button>
-    <button><i class="fas fa-home"></i>Home</button>
-    <button><i class="fas fa-user"></i>About</button>
-    <button><i class="fas fa-blog"></i>Blog</button>
+    <button><i class="fas fa-book"></i> <span>Resources</span></button>
+    <button><i class="fas fa-hands-helping"></i> <span>Outreach</span></button>
+    <button><i class="fas fa-home"></i> <span>Home</span></button>
+    <button><i class="fas fa-user"></i> <span>About</span></button>
+    <button><i class="fas fa-blog"></i> <span>Blog</span></button>
   </nav>
 
   <!-- 🔵 Sections -->

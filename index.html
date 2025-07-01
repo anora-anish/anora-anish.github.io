@@ -22,8 +22,8 @@
       display: flex;
       width: 500vw;
       height: 100vh;
-      transition: transform 1s ease-in-out;
-      transform: translateX(-200vw); /* Center on welcome section */
+      transition: transform 0.6s ease-in-out;
+      transform: translateX(-200vw);
     }
     .section {
       width: 100vw;
@@ -89,7 +89,7 @@
     }
     .transition-label {
       position: fixed;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 2rem;
@@ -102,6 +102,9 @@
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
       pointer-events: none;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
+      border-radius: 10px;
     }
     .transition-label.show {
       opacity: 1;
@@ -109,7 +112,8 @@
 
     @media (max-width: 768px) {
       html, body {
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
       .container {
         flex-direction: column;
@@ -193,11 +197,13 @@
   <script>
     const label = document.getElementById('transitionLabel');
 
-    function animateText(finalText, subtext) {
+    function animateText(finalText, subtext, callback) {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       let iterations = 0;
       const total = finalText.length;
-      let interval = setInterval(() => {
+      const duration = 1600;
+      const step = duration / total;
+      const interval = setInterval(() => {
         let display = '';
         for (let i = 0; i < total; i++) {
           if (i < iterations) {
@@ -207,21 +213,23 @@
           }
         }
         label.textContent = display + '\n' + subtext;
-        if (iterations >= total) {
-          clearInterval(interval);
-        }
         iterations++;
-      }, 80);
+        if (iterations > total) {
+          clearInterval(interval);
+          if (callback) callback();
+        }
+      }, step);
     }
 
     function navigateTo(sectionIndex, labelText) {
       const container = document.getElementById('scrollContainer');
       label.classList.add('show');
-      animateText('ANORA ANISH', labelText);
-      setTimeout(() => {
-        label.classList.remove('show');
+      animateText('ANORA ANISH', labelText, () => {
         container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
-      }, 1000);
+        setTimeout(() => {
+          label.classList.remove('show');
+        }, 500);
+      });
     }
   </script>
 </body>

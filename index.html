@@ -15,8 +15,9 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: url('bg.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
+      background-blend-mode: multiply;
     }
     .container {
       display: flex;
@@ -35,8 +36,8 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      backdrop-filter: blur(14px);
-      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(6px);
+      background-color: rgba(255, 255, 255, 0.8);
     }
     .welcome, .about {
       display: flex;
@@ -46,11 +47,11 @@
       gap: 4rem;
     }
     .welcome img {
-      width: 220px;
+      width: 250px;
       height: 300px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
     .about img {
       width: 200px;
@@ -62,12 +63,12 @@
     .text-content {
       max-width: 700px;
       text-align: left;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: #111;
       line-height: 1.7;
     }
     .text-content h1 {
-      font-size: 2.7rem;
+      font-size: 2.5rem;
       color: #000;
     }
     nav {
@@ -126,20 +127,6 @@
     .hidden {
       visibility: hidden;
     }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: #333;
-      text-align: center;
-    }
-    footer a {
-      color: #4a148c;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
     @media (max-width: 768px) {
       html, body {
         overflow-x: hidden;
@@ -161,29 +148,18 @@
         gap: 1.5rem;
         text-align: center;
       }
-      nav {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 8px;
-        top: 10px;
-        position: sticky;
-        background: rgba(255,255,255,0.9);
-        z-index: 999;
-      }
-      nav button {
-        font-size: 0.9rem;
-      }
-      .transition-label {
-        font-size: 1.5rem;
-      }
       .welcome img {
-        width: 180px;
-        height: 240px;
-        border-radius: 10px;
+        width: 200px;
+        height: 250px;
+      }
+      .about img {
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
       }
       .text-content {
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
     }
   </style>
@@ -212,35 +188,29 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>Welcome!</h1>
-        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
-        <p style="margin-top: 1rem;">
-          I'm Anora Anish, a first-year undergraduate student at Christ College, Irinjalakuda, Kerala. I'm currently pursuing a Bachelor's degree in Physics with a minor in Mathematics. I've explored many different interests on my journey so far, and I'd love to share them with you — in the hope that it might inspire, guide, or resonate with you.
+     
+        <p>Hi There! I'm Anora Anish, a first-year undergraduate student at Christ College, Irinjalakuda, Kerala. I'm currently pursuing a Bachelor's degree in Physics with a minor in Mathematics. I've explored many different interests on my journey so far, and I'd love to share them with you — in the hope that it might inspire, guide, or resonate with you.Explore my space of learning, reflection, and creativity.</p>
+        <p>In my free time, I enjoy dabbling in a bit of coding, reading philosophy, and writing. If anything here speaks to you, if you're looking for guidance, or even just want to connect — feel free to reach out:</p>
+        <p style="font-weight: bold;">
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
+          <a href="https://www.instagram.com/anoraanish?igsh=ZDJzYnEzanljbm1n" target="_blank">Instagram</a> |
+          <a href="https://x.com/anora_anish?t=caKt72V4z-24tTyBPYGc2Q&s=09" target="_blank">Twitter (X)</a> |
+          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
+          <a href="https://substack.com/@anoraanish?utm_source=share&utm_medium=android&r=5t70bj" target="_blank">Substack</a>
         </p>
-        <p style="margin-top: 0.5rem;">
-          In my free time, I enjoy dabbling in a bit of coding, reading philosophy, and writing. If anything here speaks to you, if you're looking for guidance, or even just want to connect — feel free to reach out:
-        </p>
-        <footer>
-          <p>
-            <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
-            <a href="https://www.instagram.com/anoraanish?igsh=ZDJzYnEzanljbm1n" target="_blank">Instagram</a> |
-            <a href="https://x.com/anora_anish?t=caKt72V4z-24tTyBPYGc2Q&s=09" target="_blank">Twitter (X)</a> |
-            <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
-            <a href="https://substack.com/@anoraanish?utm_source=share&utm_medium=android&r=5t70bj" target="_blank">Substack</a>
-          </p>
-          <p style="margin-top: 0.3rem;">© Anora Anish</p>
-        </footer>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">&copy; 2025 Anora Anish. All rights reserved.</p>
       </div>
     </div>
     <div class="section about">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>About Me</h1>
-        <p>Physics UG student | Writer | Dreamer</p>
+        <p>Student | Writer | Physics Enthusiast</p>
       </div>
     </div>
     <div class="section blog">
       <h1>Blog</h1>
-      <p>Academic notes, Malayalam and English personal writings</p>
+      <p>Academic notes and Personal writings</p>
     </div>
   </div>
 

@@ -10,86 +10,83 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
-    body {
+    html, body {
+      height: 100%;
       overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
-
+    .container {
+      display: flex;
+      width: 500vw;
+      height: 100vh;
+      transition: transform 0.6s ease-in-out;
+      transform: translateX(-200vw);
+    }
+    .section {
+      width: 100vw;
+      height: 100vh;
+      padding: 4rem;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+    .welcome, .about {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+    .welcome img, .about img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 100px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .text-content {
+      max-width: 500px;
+      text-align: center;
+    }
     nav {
       position: fixed;
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1000;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       display: flex;
-      background: white;
-      padding: 8px 16px;
-      border-radius: 12px;
-      gap: 12px;
+      gap: 15px;
       flex-wrap: wrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
-
     nav button {
       background: none;
       border: none;
+      font-size: 1rem;
       cursor: pointer;
-      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: background 0.2s;
+      gap: 5px;
     }
-
-    nav button:hover,
-    nav button:focus {
-      background: #f0f0f0;
+    nav button i {
+      font-size: 1.1rem;
     }
-
-    .container {
-      display: flex;
-      transition: transform 0.8s ease-in-out;
-      height: 100vh;
-      width: 500vw;
+    nav button:hover {
+      color: #4a148c;
     }
-
-    .section {
-      min-width: 100vw;
-      height: 100vh;
-      padding: 80px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: url('bg.jpg') no-repeat center center/cover;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: black;
-      text-align: center;
-    }
-
-    .section img {
-      border-radius: 50%;
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-
-    .text-content h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .text-content p {
-      font-size: 1rem;
-      max-width: 500px;
-    }
-
     .transition-label {
       position: fixed;
       top: 50%;
@@ -97,51 +94,65 @@
       transform: translate(-50%, -50%);
       font-size: 2rem;
       font-weight: bold;
-      color: black;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      display: none;
-      z-index: 2000;
+      color: #000;
       text-align: center;
+      z-index: 200;
+      font-family: 'Courier New', monospace;
       white-space: pre-line;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
+      border-radius: 10px;
     }
-
     .transition-label.show {
-      display: block;
+      opacity: 1;
     }
-
     .hidden {
       visibility: hidden;
     }
 
     @media (max-width: 768px) {
-      nav {
+      html, body {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .container {
         flex-direction: column;
+        width: 100vw;
+        height: auto;
+        transform: translateX(0);
+      }
+      .section {
+        width: 100vw;
+        height: auto;
+        padding: 3rem 1.5rem;
+      }
+      .welcome, .about {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px;
         top: 10px;
-        width: 90%;
-        left: 5%;
-        transform: none;
-        padding: 10px;
+        position: sticky;
+        background: rgba(255,255,255,0.9);
+        z-index: 999;
       }
-
       nav button {
-        font-size: 0.95rem;
-        justify-content: flex-start;
+        font-size: 0.9rem;
       }
-
-      .section img {
-        width: 140px;
-        height: 140px;
-      }
-
-      .text-content h1 {
+      .transition-label {
         font-size: 1.5rem;
       }
-
-      .text-content p {
-        font-size: 0.9rem;
-        padding: 0 10px;
+      .welcome img, .about img {
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
       }
     }
   </style>
@@ -150,28 +161,35 @@
   <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
-    <button onclick="navigateTo(0, 'HOME')"><i class="fas fa-home"></i> Home</button>
-    <button onclick="navigateTo(1, 'RESOURCES')"><i class="fas fa-book"></i> Resources</button>
-    <button onclick="navigateTo(2, 'OUTREACH')"><i class="fas fa-bullhorn"></i> Outreach</button>
-    <button onclick="navigateTo(3, 'ABOUT')"><i class="fas fa-user"></i> About</button>
-    <button onclick="navigateTo(4, 'BLOG')"><i class="fas fa-pen-nib"></i> Blog</button>
+    <button onclick="navigateTo(0, 'RESOURCES')"><i class="fas fa-book"></i>Resources</button>
+    <button onclick="navigateTo(1, 'OUTREACH')"><i class="fas fa-bullhorn"></i>Outreach</button>
+    <button onclick="navigateTo(2, 'HOME')"><i class="fas fa-home"></i>Home</button>
+    <button onclick="navigateTo(3, 'ABOUT')"><i class="fas fa-user"></i>About</button>
+    <button onclick="navigateTo(4, 'BLOG')"><i class="fas fa-pen-nib"></i>Blog</button>
   </nav>
 
   <div class="container" id="scrollContainer">
-    <div class="section welcome">
-      <img src="anora.jpg" alt="Anora Photo">
-      <div class="text-content">
-        <h1>Hi There !</h1>
-        <p>I’m Anora. Explore my space of learning, reflection, and creativity.</p>
-      </div>
-    </div>
     <div class="section resources">
-      <h1>Academic Resources</h1>
-      <p>Study materials, notes, and curated links.</p>
-    </div>
-    <div class="section outreach">
-      <h1>Research & Outreach</h1>
-      <p>My work beyond the classroom – collaborations, talks, and more.</p>
+      <h1>👋 Hello, I’m Anora Anish</h1>
+
+      <p>I’m a first-year undergraduate student at <strong>Christ College, Irinjalakuda</strong>, Kerala, currently pursuing a <strong>Bachelor’s degree in Physics</strong> with <strong>Mathematics as my minor</strong>.Explore my space of learning, reflection, and creativity.</p>
+
+      <p>🤝 <strong>Let’s Stay Connected</strong><br> If any of this resonates with you — or if you simply want to connect — you’re always welcome to explore the rest of my site or reach out through the links below.</p>
+
+      <footer>
+        <p>
+          <strong>🔗 Connect:</strong>
+          <a href="https://github.com/anora-anish" target="_blank">GitHub</a> |
+          <a href="mailto:your.email@example.com">Email</a> |
+          <a href="https://www.instagram.com/anoraanish" target="_blank">Instagram</a> |
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
+          <a href="https://x.com/anora_anish" target="_blank">X</a> |
+          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
+          <a href="https://substack.com/@anoraanish" target="_blank">Substack</a>
+        </p>
+        <p>© 2025 Anora Anish</p>
+      </footer>
+      </div>
     </div>
     <div class="section about">
       <img src="anora.jpg" alt="Anora Photo">
@@ -182,7 +200,7 @@
     </div>
     <div class="section blog">
       <h1>Blog</h1>
-      <p>Academic notes and Personal writings</p>
+      <p>Academic notes, Malayalam and English personal writings</p>
     </div>
   </div>
 
@@ -190,15 +208,11 @@
     const label = document.getElementById('transitionLabel');
     const container = document.getElementById('scrollContainer');
 
-    window.onload = () => {
-      container.style.transform = 'translateX(0vw)';
-    };
-
     function animateText(finalText, subtext, callback) {
       const chars = 'ANORISH';
       let iterations = 0;
       const total = finalText.length;
-      const duration = 1000; // 1.5 seconds
+      const duration = 1000;
       const step = duration / total;
       const interval = setInterval(() => {
         let display = '';
@@ -227,7 +241,7 @@
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
           label.classList.remove('show');
-        }, 200);
+        }, 200); // shorter pause after transition
       });
     }
   </script>

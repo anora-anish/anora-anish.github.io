@@ -11,13 +11,21 @@
       padding: 0;
       box-sizing: border-box;
     }
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
+    html, 
+      body {
+      margin: 0;
+      font-family: Georgia, serif;
       background: url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
+      color: #222;
     }
+    nav {
+      background-color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+    }
+    
     .container {
       display: flex;
       width: 500vw;
@@ -181,14 +189,31 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>Welcome!</h1>
-        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
+        <p>I'm Anora Anish, a first-year undergraduate student at Christ College, Irinjalakuda, Kerala. I'm currently pursuing a Bachelor's degree in Physics with a minor in Mathematics. I've explored many different interests on my journey so far, and I'd love to share them with you — in the hope that it might inspire, guide, or resonate with you.</p>
+        <p>In my free time, I enjoy dabbling in a bit of coding, reading philosophy, and writing.</p> 
+    
+       <p>🤝 <strong>Let’s Stay Connected</strong><br> If anything here speaks to you, if you're looking for guidance, or even just want to connect — feel free to reach out:</p>
+
+      <footer>
+        <p>
+          <strong>🔗 Connect:</strong>
+          <a href="https://github.com/anora-anish" target="_blank">GitHub</a> |
+          <a href="mailto:your.anoraanish1706@gmail.com">Email</a> |
+          <a href="https://www.instagram.com/anoraanish" target="_blank">Instagram</a> |
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
+          <a href="https://x.com/anora_anish" target="_blank">Twitter</a> |
+          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
+          <a href="https://substack.com/@anoraanish" target="_blank">Substack</a>
+        </p>
+        <p>© 2025 Anora Anish</p>
+      </footer>
       </div>
     </div>
     <div class="section about">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>About Me</h1>
-        <p>Physics UG student | Writer | Dreamer</p>
+        <p>Student | Writer | Physics Enthusiast</p>
       </div>
     </div>
     <div class="section blog">
@@ -202,10 +227,10 @@
     const container = document.getElementById('scrollContainer');
 
     function animateText(finalText, subtext, callback) {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const chars = 'ANORISH';
       let iterations = 0;
       const total = finalText.length;
-      const duration = 1200;
+      const duration = 1000;
       const step = duration / total;
       const interval = setInterval(() => {
         let display = '';

@@ -53,8 +53,14 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
     .text-content {
-      max-width: 500px;
-      text-align: center;
+      max-width: 600px;
+      text-align: left;
+      font-size: 1.1rem;
+      color: #111;
+    }
+    .text-content h1 {
+      font-size: 2.2rem;
+      color: #000;
     }
     nav {
       position: fixed;
@@ -154,6 +160,9 @@
         height: 150px;
         border-radius: 75px;
       }
+      .text-content {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -181,18 +190,17 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>Welcome!</h1>
-        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
         <p style="margin-top: 1rem;">
-          I'm Anora Anish, a first-year undergraduate student at Christ College, Irinjalakuda, Kerala. I'm currently pursuing a Bachelor's degree in Physics with a minor in Mathematics. I've explored many different interests on my journey so far, and I'd love to share them with you — in the hope that it might inspire, guide, or resonate with you.
+          Hi There ! I'm Anora Anish, a first-year undergraduate student at Christ College, Irinjalakuda, Kerala. I'm currently pursuing a Bachelor's degree in Physics with a minor in Mathematics. I've explored many different interests on my journey so far, and I'd love to share them with you — in the hope that it might inspire, guide, or resonate with you.
         </p>
         <p style="margin-top: 0.5rem;">
           In my free time, I enjoy dabbling in a bit of coding, reading philosophy, and writing. If anything here speaks to you, if you're looking for guidance, or even just want to connect — feel free to reach out:
         </p>
-        <p style="margin-top: 0.5rem;">
-          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> | 
-          <a href="https://www.instagram.com/anoraanish?igsh=ZDJzYnEzanljbm1n" target="_blank">Instagram</a> | 
-          <a href="https://x.com/anora_anish?t=caKt72V4z-24tTyBPYGc2Q&s=09" target="_blank">X</a> | 
-          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> | 
+        <p style="margin-top: 0.5rem; font-weight: bold;">
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank">Facebook</a> |
+          <a href="https://www.instagram.com/anoraanish?igsh=ZDJzYnEzanljbm1n" target="_blank">Instagram</a> |
+          <a href="https://x.com/anora_anish?t=caKt72V4z-24tTyBPYGc2Q&s=09" target="_blank">X</a> |
+          <a href="https://www.threads.net/@anoraanish" target="_blank">Threads</a> |
           <a href="https://substack.com/@anoraanish?utm_source=share&utm_medium=android&r=5t70bj" target="_blank">Substack</a>
         </p>
       </div>
@@ -201,7 +209,7 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>About Me</h1>
-        <p>student | Writer | Physics Enthusiast</p>
+        <p>Student | Writer | Physics Enthusiast</p>
       </div>
     </div>
     <div class="section blog">
@@ -247,7 +255,7 @@
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
           label.classList.remove('show');
-        }, 200); // shorter pause after transition
+        }, 200);
       });
     }
   </script>

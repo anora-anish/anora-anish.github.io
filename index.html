@@ -179,6 +179,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      user-select: none;
     }
 
     .transition-label {
@@ -188,17 +189,20 @@
       text-align: center;
       font-family: 'Courier New', monospace;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      min-width: 300px;
     }
 
     .transition-label h1 {
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
+      letter-spacing: 3px;
     }
 
     .transition-label p {
       font-size: 1.1rem;
       font-weight: bold;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     @media (max-width: 768px) {
@@ -311,48 +315,50 @@
     const overlay = document.getElementById('overlay');
     const mainName = document.getElementById('mainName');
     const subText = document.getElementById('subText');
-
-    // Simulate typewriter effect on initial page load
-    let nameText = "ANORA ANISH";
-    let i = 0;
-
-    function typeName() {
-      if (i <= nameText.length) {
-        mainName.textContent = nameText.substring(0, i);
-        i++;
-        setTimeout(typeName, 80);
-      } else {
-        setTimeout(() => {
-          overlay.style.display = 'none';
-        }, 800);
-      }
-    }
-
-    window.addEventListener('load', () => {
-      typeName();
-    });
-
-    // Navigation with transition overlay effect
     const navButtons = document.querySelectorAll('nav button');
 
+    let typingTimeout;
+    let i = 0;
+    const nameText = "ANORA ANISH";
+
+    function typeName(callback) {
+      mainName.textContent = "";
+      i = 0;
+      function type() {
+        if (i <= nameText.length) {
+          mainName.textContent = nameText.substring(0, i);
+          i++;
+          typingTimeout = setTimeout(type, 80);
+        } else {
+          setTimeout(callback, 800);
+        }
+      }
+      type();
+    }
+
+    // Initial page load typing animation
+    window.addEventListener('load', () => {
+      typeName(() => {
+        overlay.style.display = 'none';
+      });
+    });
+
+    // Nav buttons transition with typing effect
     navButtons.forEach(button => {
       button.addEventListener('click', () => {
         const targetId = button.textContent.toLowerCase();
         const targetSection = document.getElementById(targetId);
         if (!targetSection) return;
 
-        // Show transition overlay
+        // Show overlay and run typing animation
         overlay.style.display = 'flex';
 
-        // Wait for 1.2 seconds to simulate transition effect
-        setTimeout(() => {
+        typeName(() => {
           targetSection.scrollIntoView({ behavior: 'smooth' });
-
-          // Hide overlay after scrolling starts
           setTimeout(() => {
             overlay.style.display = 'none';
           }, 600);
-        }, 1200);
+        });
       });
     });
   </script>

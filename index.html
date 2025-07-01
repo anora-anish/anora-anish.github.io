@@ -13,14 +13,11 @@
     }
 
     html, body {
-      min-height: 100vh;
+      height: 100%;
+      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       background: url('transition.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
 
     .container {
@@ -77,6 +74,8 @@
       border-radius: 8px;
       box-shadow: 0 0 12px rgba(0,0,0,0.2);
       align-self: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .text-content {
@@ -106,7 +105,6 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      backdrop-filter: none !important;
     }
 
     nav button {
@@ -138,47 +136,43 @@
       font-weight: bold;
       color: #000;
       text-align: center;
-      z-index: 9999;
+      z-index: 2000;
       font-family: 'Courier New', monospace;
       white-space: pre-line;
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 1rem 2rem;
-      border-radius: 10px;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
       pointer-events: none;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
+      border-radius: 10px;
     }
 
     .transition-label.show {
       opacity: 1;
     }
 
-    .bg-transition {
-      content: '';
+    .transition-bg {
       position: fixed;
       top: 0;
       left: 0;
-      height: 100vh;
       width: 100vw;
-      background: url('bg.jpg') no-repeat center center;
+      height: 100vh;
+      background: url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
-      z-index: 9998;
-      display: none;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      pointer-events: none;
     }
 
-    .bg-transition.show {
-      display: block;
+    .transition-bg.show {
+      opacity: 1;
     }
 
     .footer {
-      width: 100vw;
+      width: 100%;
       text-align: center;
-      padding: 2rem 0;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(8px);
-      position: relative;
-      z-index: 10;
+      margin-top: 2rem;
     }
 
     .footer div {
@@ -232,8 +226,6 @@
       .welcome img {
         width: 200px;
         height: 260px;
-        border-radius: 10px;
-        align-self: center;
       }
 
       .text-content {
@@ -242,23 +234,18 @@
       }
 
       .footer {
-        position: static;
-        padding-bottom: 3rem;
-      }
-
-      .footer div {
-        flex-direction: row;
-        justify-content: center;
-        gap: 16px;
+        margin-top: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-transition" id="bgTransition"></div>
+  <!-- ✅ Transition Background -->
+  <div class="transition-bg" id="transitionBg"></div>
   <div class="transition-label" id="transitionLabel">Loading...</div>
 
+  <!-- ✅ Navigation -->
   <nav>
     <button onclick="navigateTo(0, 'RESOURCES')"><i class="fas fa-book"></i>Resources</button>
     <button onclick="navigateTo(1, 'OUTREACH')"><i class="fas fa-bullhorn"></i>Outreach</button>
@@ -267,6 +254,7 @@
     <button onclick="navigateTo(4, 'BLOG')"><i class="fas fa-pen-nib"></i>Blog</button>
   </nav>
 
+  <!-- ✅ All Pages -->
   <div class="container" id="scrollContainer">
 
     <div class="section resources">
@@ -292,6 +280,21 @@
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
         <p>Thank you for stopping by !!!</p>
+
+        <!-- ✅ Footer inside HOME section only -->
+        <div class="footer">
+          <div>
+            <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
+            <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
+          </div>
+          <p>&copy; 2025 Anora Anish. All rights reserved.</p>
+        </div>
+
       </div>
     </div>
 
@@ -308,25 +311,14 @@
         <p>Academic notes and Personal writings</p>
       </div>
     </div>
+
   </div>
 
-  <div class="footer">
-    <div>
-      <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
-    </div>
-    <p>&copy; 2025 Anora Anish. All rights reserved.</p>
-  </div>
-
+  <!-- ✅ Transition Script -->
   <script>
     const label = document.getElementById('transitionLabel');
-    const bgTransition = document.getElementById('bgTransition');
     const container = document.getElementById('scrollContainer');
+    const bg = document.getElementById('transitionBg');
 
     function animateText(finalText, subtext, callback) {
       const chars = 'ANORISH';
@@ -337,11 +329,7 @@
       const interval = setInterval(() => {
         let display = '';
         for (let i = 0; i < total; i++) {
-          if (i < iterations) {
-            display += finalText[i];
-          } else {
-            display += chars[Math.floor(Math.random() * chars.length)];
-          }
+          display += i < iterations ? finalText[i] : chars[Math.floor(Math.random() * chars.length)];
         }
         label.textContent = display + '\n' + subtext;
         iterations++;
@@ -353,8 +341,8 @@
     }
 
     function navigateTo(sectionIndex, labelText) {
-      bgTransition.classList.add('show');
       container.classList.add('hidden');
+      bg.classList.add('show');
       label.classList.add('show');
 
       animateText('ANORA ANISH', labelText, () => {
@@ -362,7 +350,7 @@
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
           label.classList.remove('show');
-          bgTransition.classList.remove('show');
+          bg.classList.remove('show');
         }, 300);
       });
     }

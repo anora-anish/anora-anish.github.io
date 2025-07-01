@@ -16,7 +16,7 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('bg.jpg') no-repeat center center fixed;
+      background: url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -37,36 +37,36 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(6px);
-      background-color: rgba(255, 255, 255, 0.6);
+      position: relative;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
     .welcome {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       gap: 3rem;
     }
 
     .welcome img {
       width: 250px;
-      height: 350px;
+      height: 320px;
       object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
     }
 
     .text-content {
-      max-width: 850px;
-      text-align: left;
-      font-size: 1.2rem;
+      max-width: 900px;
+      font-size: 1.3rem;
       color: #111;
       line-height: 1.8;
     }
 
     .text-content h1 {
-      font-size: 2.6rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       color: #000;
-      margin-bottom: 1.5rem;
     }
 
     nav {
@@ -128,33 +128,31 @@
       opacity: 1;
     }
 
-    footer {
-      margin-top: 2rem;
+    .hidden {
+      visibility: hidden;
+    }
+
+    .footer {
+      width: 100%;
       text-align: center;
-      font-size: 0.9rem;
+      margin-top: 3rem;
     }
 
-    footer a {
-      margin: 0 10px;
+    .footer a {
       color: #333;
-      text-decoration: none;
-      font-size: 1rem;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
     }
 
-    footer a:hover {
+    .footer a:hover {
       color: #4a148c;
     }
 
-    .footer-icons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .footer-icons a {
+    .footer p {
+      font-size: 0.9rem;
+      margin-top: 1rem;
       color: #444;
-      font-size: 1.2rem;
     }
 
     @media (max-width: 768px) {
@@ -178,26 +176,29 @@
 
       .welcome {
         flex-direction: column;
+        align-items: center;
         text-align: center;
       }
 
       .welcome img {
         width: 200px;
         height: 260px;
+        border-radius: 10px;
       }
 
       .text-content {
-        text-align: center;
-        font-size: 1.05rem;
+        font-size: 1.1rem;
+        text-align: left;
       }
 
-      .text-content h1 {
-        font-size: 2.2rem;
+      .footer {
+        margin-top: 2rem;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
@@ -209,6 +210,7 @@
   </nav>
 
   <div class="container" id="scrollContainer">
+
     <div class="section resources">
       <h1>Academic Resources</h1>
       <p>Study materials, notes, and curated links.</p>
@@ -224,12 +226,17 @@
       <div class="text-content">
         <h1>Welcome!</h1>
         <p>Hi, I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
+
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
+
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
+
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
+
         <p>Thank you for stopping by.</p>
 
-        <div class="footer-icons">
+        <div class="footer">
+          <div class="footer-icons">
           <a href="mailto:your.anoraanish1706@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
           <a href="https://www.instagram.com/anoraanish" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
@@ -237,7 +244,6 @@
           <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="https://substack.com/@anoraanish" target="_blank" title="Substack"><i class="fas fa-rss"></i></a>
         </div>
-
         <footer>
           <p>© 2025 Anora Anish</p>
         </footer>
@@ -253,6 +259,7 @@
       <h1>Blog</h1>
       <p>Academic notes, Malayalam and English personal writings</p>
     </div>
+
   </div>
 
   <script>
@@ -286,6 +293,7 @@
     function navigateTo(sectionIndex, labelText) {
       container.classList.add('hidden');
       label.classList.add('show');
+
       animateText('ANORA ANISH', labelText, () => {
         setTimeout(() => {
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
@@ -295,5 +303,6 @@
       });
     }
   </script>
+
 </body>
 </html>

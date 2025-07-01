@@ -21,20 +21,30 @@
       scroll-behavior: smooth;
     }
 
+    /* Floating Navbar */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 30px;
+      padding: 8px 24px;
       display: flex;
       justify-content: center;
       gap: 40px;
-      padding: 12px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       z-index: 1000;
       font-weight: 600;
       font-size: 1.1rem;
+      user-select: none;
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      transition: background 0.3s ease;
+    }
+
+    nav:hover {
+      background: rgba(255, 255, 255, 1);
     }
 
     nav button {
@@ -44,8 +54,10 @@
       color: #333;
       transition: color 0.3s ease;
       padding: 8px 12px;
-      border-radius: 6px;
+      border-radius: 20px;
       font-family: inherit;
+      user-select: none;
+      white-space: nowrap;
     }
 
     nav button:hover {
@@ -210,6 +222,9 @@
         gap: 20px;
         font-size: 1rem;
         padding: 8px 0;
+        top: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
       .welcome {
@@ -321,6 +336,11 @@
     let i = 0;
     const nameText = "ANORA ANISH";
 
+    // Reduced timing for faster transitions:
+    const typingSpeed = 40;    // ms per letter (was 80)
+    const delayAfterTyping = 400;  // ms after finished typing (was 800)
+    const overlayHideDelay = 400;  // ms after scrolling to hide overlay (was 600)
+
     function typeName(callback) {
       mainName.textContent = "";
       i = 0;
@@ -328,9 +348,9 @@
         if (i <= nameText.length) {
           mainName.textContent = nameText.substring(0, i);
           i++;
-          typingTimeout = setTimeout(type, 80);
+          typingTimeout = setTimeout(type, typingSpeed);
         } else {
-          setTimeout(callback, 800);
+          setTimeout(callback, delayAfterTyping);
         }
       }
       type();
@@ -357,7 +377,7 @@
           targetSection.scrollIntoView({ behavior: 'smooth' });
           setTimeout(() => {
             overlay.style.display = 'none';
-          }, 600);
+          }, overlayHideDelay);
         });
       });
     });

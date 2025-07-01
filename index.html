@@ -38,8 +38,6 @@
       backdrop-filter: blur(5px);
       background-color: rgba(255, 255, 255, 0.4);
     }
-    .resources {}
-    .outreach {}
     .welcome, .about {
       display: flex;
       flex-direction: row;
@@ -110,11 +108,13 @@
     }
 
     @media (max-width: 768px) {
+      html, body {
+        overflow: auto;
+      }
       .container {
         flex-direction: column;
         width: 100vw;
         height: auto;
-        overflow-y: scroll;
         transform: translateX(0);
       }
       .section {
@@ -132,6 +132,9 @@
         gap: 10px;
         padding: 8px;
         top: 10px;
+        position: sticky;
+        background: rgba(255,255,255,0.9);
+        z-index: 999;
       }
       nav button {
         font-size: 0.9rem;
@@ -178,12 +181,12 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>About Me</h1>
-        <p>Student | Writer | Physics Enthusiast</p>
+        <p>Physics UG student | Writer | Dreamer</p>
       </div>
     </div>
     <div class="section blog">
       <h1>Blog</h1>
-      <p>Academic notes and Personal writings</p>
+      <p>Academic notes, Malayalam and English personal writings</p>
     </div>
   </div>
 

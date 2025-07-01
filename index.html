@@ -76,15 +76,10 @@
       font-size: 1rem;
       cursor: pointer;
       font-weight: bold;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      color: #333;
     }
     nav button:hover {
       color: #4a148c;
-    }
-    nav button span {
-      font-size: 0.75rem;
     }
     .transition-label {
       position: fixed;
@@ -110,11 +105,11 @@
   <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
-    <button onclick="navigateTo(0, 'Academic Resources')">📘<span>Resources</span></button>
-    <button onclick="navigateTo(1, 'Research & Outreach')">🌍<span>Outreach</span></button>
-    <button onclick="navigateTo(2, 'Welcome')">🏠<span>Welcome</span></button>
-    <button onclick="navigateTo(3, 'About Me')">👩‍🔬<span>About Me</span></button>
-    <button onclick="navigateTo(4, 'Blog')">📝<span>Blog</span></button>
+    <button onclick="navigateTo(0, 'Academic Resources')">Resources</button>
+    <button onclick="navigateTo(1, 'Research & Outreach')">Outreach</button>
+    <button onclick="navigateTo(2, 'Welcome')">Welcome</button>
+    <button onclick="navigateTo(3, 'About Me')">About Me</button>
+    <button onclick="navigateTo(4, 'Blog')">Blog</button>
   </nav>
 
   <div class="container" id="scrollContainer">
@@ -137,12 +132,12 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>About Me</h1>
-        <p>Student | Writer | Physics Enthusiast</p>
+        <p>Physics UG student | Writer | Dreamer</p>
       </div>
     </div>
     <div class="section blog">
       <h1>Blog</h1>
-      <p>Academic notes & Personal writings</p>
+      <p>Academic notes, Malayalam and English personal writings</p>
     </div>
   </div>
 

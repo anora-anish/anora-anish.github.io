@@ -6,13 +6,17 @@
   <title>Anora Anish</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html, body {
       height: 100%;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: url('bg.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -33,37 +37,36 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      background-color: rgba(255, 255, 255, 0.6);
     }
 
     .welcome {
-      display: flex;
-      align-items: center; /* centered vertically */
-      gap: 2.5rem;
-      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
     }
 
     .welcome img {
       width: 250px;
-      height: 320px;
+      height: 350px;
       object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.2);
-      flex-shrink: 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
 
     .text-content {
-      max-width: 900px;
-      font-size: 1.3rem;
+      max-width: 850px;
+      text-align: left;
+      font-size: 1.2rem;
       color: #111;
       line-height: 1.8;
     }
 
     .text-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.6rem;
       color: #000;
+      margin-bottom: 1.5rem;
     }
 
     nav {
@@ -82,37 +85,83 @@
     }
 
     nav button {
-      background: none; border: none;
-      cursor: pointer; font-weight: bold;
-      color: #333; display: flex;
-      align-items: center; gap: 5px;
-    }
-
-    nav button:hover { color: #4a148c; }
-
-    .footer {
-      width: 100%;
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .footer a {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
       color: #333;
-      margin: 0 8px;
-      font-size: 1.2rem;
-      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .footer a:hover { color: #4a148c; }
+    nav button i {
+      font-size: 1.1rem;
+    }
 
-    .footer p {
-      margin-top: 1rem;
+    nav button:hover {
+      color: #4a148c;
+    }
+
+    .transition-label {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #000;
+      text-align: center;
+      z-index: 200;
+      font-family: 'Courier New', monospace;
+      white-space: pre-line;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+
+    .transition-label.show {
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
       font-size: 0.9rem;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    footer a:hover {
+      color: #4a148c;
+    }
+
+    .footer-icons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .footer-icons a {
       color: #444;
+      font-size: 1.2rem;
     }
 
     @media (max-width: 768px) {
-      html, body { overflow-x: hidden; overflow-y: auto; }
+      html, body {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
 
       .container {
         flex-direction: column;
@@ -121,27 +170,35 @@
         transform: translateX(0);
       }
 
-      .section { padding: 3rem 1.5rem; }
+      .section {
+        width: 100vw;
+        height: auto;
+        padding: 3rem 1.5rem;
+      }
 
       .welcome {
         flex-direction: column;
         text-align: center;
       }
 
-      .welcome img { width: 180px; height: 260px; }
-
-      .text-content {
-        font-size: 1.05rem;
-        text-align: left;
+      .welcome img {
+        width: 200px;
+        height: 260px;
       }
 
-      .footer a { font-size: 1rem; }
+      .text-content {
+        text-align: center;
+        font-size: 1.05rem;
+      }
 
-      .footer { margin-top: 2rem; }
+      .text-content h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
     <button onclick="navigateTo(0, 'RESOURCES')"><i class="fas fa-book"></i>Resources</button>
@@ -152,7 +209,6 @@
   </nav>
 
   <div class="container" id="scrollContainer">
-
     <div class="section resources">
       <h1>Academic Resources</h1>
       <p>Study materials, notes, and curated links.</p>
@@ -167,23 +223,24 @@
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
         <h1>Welcome!</h1>
-        <p>Hi, I’m Anora Anish — a first‑year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
+        <p>Hi, I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
         <p>Thank you for stopping by.</p>
 
-        <div class="footer">
-          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-          <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-          <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-rss"></i></a>
-          <p>&copy; 2025 Anora Anish</p>
+        <div class="footer-icons">
+          <a href="mailto:your.anoraanish1706@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.instagram.com/anoraanish" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://x.com/anora_anish" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://substack.com/@anoraanish" target="_blank" title="Substack"><i class="fas fa-rss"></i></a>
         </div>
 
+        <footer>
+          <p>© 2025 Anora Anish</p>
+        </footer>
       </div>
     </div>
 
@@ -196,7 +253,6 @@
       <h1>Blog</h1>
       <p>Academic notes, Malayalam and English personal writings</p>
     </div>
-
   </div>
 
   <script>
@@ -212,7 +268,11 @@
       const interval = setInterval(() => {
         let display = '';
         for (let i = 0; i < total; i++) {
-          display += i < iterations ? finalText[i] : chars[Math.floor(Math.random() * chars.length)];
+          if (i < iterations) {
+            display += finalText[i];
+          } else {
+            display += chars[Math.floor(Math.random() * chars.length)];
+          }
         }
         label.textContent = display + '\n' + subtext;
         iterations++;
@@ -225,10 +285,12 @@
 
     function navigateTo(sectionIndex, labelText) {
       container.classList.add('hidden');
+      label.classList.add('show');
       animateText('ANORA ANISH', labelText, () => {
         setTimeout(() => {
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
+          label.classList.remove('show');
         }, 200);
       });
     }

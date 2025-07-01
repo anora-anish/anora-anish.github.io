@@ -74,7 +74,7 @@
       border-radius: 8px;
       box-shadow: 0 0 12px rgba(0,0,0,0.2);
       align-self: center;
-      margin-top: 20px;
+      margin-top: 80px;
       margin-bottom: 20px;
     }
 
@@ -90,6 +90,7 @@
       margin-bottom: 2rem;
       color: #000;
       text-align: center;
+      margin-top: 80px;
     }
 
     nav {
@@ -129,50 +130,45 @@
 
     .transition-label {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
-      font-weight: bold;
-      color: #000;
-      text-align: center;
-      z-index: 2000;
-      font-family: 'Courier New', monospace;
-      white-space: pre-line;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      pointer-events: none;
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 1rem 2rem;
-      border-radius: 10px;
-    }
-
-    .transition-label.show {
-      opacity: 1;
-    }
-
-    .transition-bg {
-      position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: url('bg.jpg') no-repeat center center fixed;
+      background: url('bg.jpg') no-repeat center center;
       background-size: cover;
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-      pointer-events: none;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 0.6s ease;
     }
 
-    .transition-bg.show {
-      opacity: 1;
+    .transition-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem 3rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .transition-box h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .transition-box h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
     .footer {
-      width: 100%;
+      width: 100vw;
       text-align: center;
-      margin-top: 2rem;
+      padding: 2rem 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(5px);
     }
 
     .footer div {
@@ -226,6 +222,8 @@
       .welcome img {
         width: 200px;
         height: 260px;
+        border-radius: 10px;
+        align-self: center;
       }
 
       .text-content {
@@ -234,18 +232,28 @@
       }
 
       .footer {
-        margin-top: 2rem;
+        position: static;
+        padding-bottom: 3rem;
+      }
+
+      .footer div {
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Transition Background -->
-  <div class="transition-bg" id="transitionBg"></div>
-  <div class="transition-label" id="transitionLabel">Loading...</div>
+  <!-- Page Load Transition -->
+  <div class="transition-label" id="pageLoader">
+    <div class="transition-box">
+      <h1 id="mainText">ANORA ANISH</h1>
+      <h2 id="subText">STUDENT | WRITER | PHYSICS ENTHUSIAST</h2>
+    </div>
+  </div>
 
-  <!-- ✅ Navigation -->
   <nav>
     <button onclick="navigateTo(0, 'RESOURCES')"><i class="fas fa-book"></i>Resources</button>
     <button onclick="navigateTo(1, 'OUTREACH')"><i class="fas fa-bullhorn"></i>Outreach</button>
@@ -254,7 +262,6 @@
     <button onclick="navigateTo(4, 'BLOG')"><i class="fas fa-pen-nib"></i>Blog</button>
   </nav>
 
-  <!-- ✅ All Pages -->
   <div class="container" id="scrollContainer">
 
     <div class="section resources">
@@ -280,21 +287,6 @@
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
         <p>Thank you for stopping by !!!</p>
-
-        <!-- ✅ Footer inside HOME section only -->
-        <div class="footer">
-          <div>
-            <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-            <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
-          </div>
-          <p>&copy; 2025 Anora Anish. All rights reserved.</p>
-        </div>
-
       </div>
     </div>
 
@@ -314,45 +306,49 @@
 
   </div>
 
-  <!-- ✅ Transition Script -->
-  <script>
-    const label = document.getElementById('transitionLabel');
-    const container = document.getElementById('scrollContainer');
-    const bg = document.getElementById('transitionBg');
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/anoraanish" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/anora_anish" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
+      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
+    </div>
+    <p>&copy; 2025 Anora Anish. All rights reserved.</p>
+  </div>
 
-    function animateText(finalText, subtext, callback) {
-      const chars = 'ANORISH';
-      let iterations = 0;
-      const total = finalText.length;
-      const duration = 1000;
-      const step = duration / total;
-      const interval = setInterval(() => {
-        let display = '';
-        for (let i = 0; i < total; i++) {
-          display += i < iterations ? finalText[i] : chars[Math.floor(Math.random() * chars.length)];
+  <script>
+    const container = document.getElementById('scrollContainer');
+    const loader = document.getElementById('pageLoader');
+    const mainText = document.getElementById('mainText');
+    const subText = document.getElementById('subText');
+
+    function animateText(main, sub) {
+      let i = 0;
+      const scramble = setInterval(() => {
+        mainText.textContent = main.substring(0, i) + '█'.repeat(main.length - i);
+        if (i === main.length) {
+          clearInterval(scramble);
+          mainText.textContent = main;
         }
-        label.textContent = display + '\n' + subtext;
-        iterations++;
-        if (iterations > total) {
-          clearInterval(interval);
-          if (callback) callback();
-        }
-      }, step);
+        i++;
+      }, 80);
+      subText.textContent = sub;
     }
 
-    function navigateTo(sectionIndex, labelText) {
-      container.classList.add('hidden');
-      bg.classList.add('show');
-      label.classList.add('show');
+    window.onload = () => {
+      animateText('ANORA ANISH', 'STUDENT | WRITER | PHYSICS ENTHUSIAST');
+      setTimeout(() => {
+        loader.style.opacity = 0;
+        setTimeout(() => loader.style.display = 'none', 600);
+      }, 2000);
+    };
 
-      animateText('ANORA ANISH', labelText, () => {
-        setTimeout(() => {
-          container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
-          container.classList.remove('hidden');
-          label.classList.remove('show');
-          bg.classList.remove('show');
-        }, 300);
-      });
+    function navigateTo(sectionIndex, labelText) {
+      container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
     }
   </script>
 

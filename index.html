@@ -41,10 +41,15 @@
       background-color: rgba(255, 255, 255, 0.3);
     }
 
+    .section.welcome {
+      margin-top: 80px;
+    }
+
     .welcome {
       flex-direction: row;
       gap: 3rem;
       align-items: center;
+      justify-content: center;
     }
 
     .welcome img {
@@ -54,6 +59,8 @@
       border-radius: 8px;
       box-shadow: 0 0 12px rgba(0,0,0,0.2);
       align-self: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .text-content {
@@ -139,9 +146,15 @@
       margin-top: 3rem;
     }
 
+    .footer div {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
     .footer a {
       color: #333;
-      margin: 0 12px;
       font-size: 1.3rem;
       transition: color 0.3s ease;
     }
@@ -154,16 +167,6 @@
       font-size: 0.9rem;
       margin-top: 1rem;
       color: #444;
-    }
-
-    /* ✅ Added spacing fix for email and substack icons */
-    .footer a:nth-child(5) {
-      margin-right: 20px;
-    }
-
-    .footer a:nth-child(6),
-    .footer a:nth-child(7) {
-      margin-left: 10px;
     }
 
     @media (max-width: 768px) {
@@ -206,6 +209,12 @@
       .footer {
         margin-top: 2rem;
       }
+
+      .footer div {
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+      }
     }
   </style>
 </head>
@@ -236,7 +245,7 @@
     <div class="section welcome">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
-        <h2><centre>Hi There 👋</centre> </h2>
+        <h1>Hi There 👋</h1>
         <p>I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
 
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
@@ -245,7 +254,7 @@
 
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
 
-        <p> Thank you for stopping by !!! </p>
+        <p>Thank you for stopping by !!!</p>
 
         <div class="footer">
           <div>

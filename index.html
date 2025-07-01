@@ -14,10 +14,10 @@
 
     html, body {
       height: 100%;
-      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       background: url('transition.jpg') no-repeat center center fixed;
       background-size: cover;
+      overflow: hidden;
     }
 
     .container {
@@ -34,61 +34,13 @@
       padding: 4rem;
       flex-shrink: 0;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      position: relative;
-      backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.3);
-      overflow-y: auto;
-      text-align: center;
-    }
-
-    .section-content {
-      max-width: 700px;
-    }
-
-    .section-content h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #000;
-    }
-
-    .section-content p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: #111;
-    }
-
-    .welcome {
-      flex-direction: row;
-      gap: 3rem;
-      align-items: center;
       justify-content: center;
-    }
-
-    .welcome img {
-      width: 250px;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.2);
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    .text-content {
-      max-width: 900px;
-      font-size: 1.3rem;
-      color: #111;
-      line-height: 1.8;
-    }
-
-    .text-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #000;
-      text-align: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.4);
+      overflow-y: auto;
+      position: relative;
     }
 
     nav {
@@ -118,12 +70,12 @@
       gap: 5px;
     }
 
-    nav button i {
-      font-size: 1.1rem;
-    }
-
     nav button:hover {
       color: #4a148c;
+    }
+
+    nav button i {
+      font-size: 1.1rem;
     }
 
     .transition-label {
@@ -135,7 +87,7 @@
       font-weight: bold;
       color: #000;
       text-align: center;
-      z-index: 200;
+      z-index: 2000;
       font-family: 'Courier New', monospace;
       white-space: pre-line;
       opacity: 0;
@@ -144,8 +96,7 @@
       background: url('bg.png') no-repeat center center;
       background-size: cover;
       padding: 2rem 3rem;
-      border-radius: 10px;
-      backdrop-filter: blur(2px);
+      border-radius: 15px;
     }
 
     .transition-label.show {
@@ -156,22 +107,48 @@
       visibility: hidden;
     }
 
+    .welcome {
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+      justify-content: center;
+    }
+
+    .welcome img {
+      width: 250px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+
+    .text-content {
+      max-width: 900px;
+      font-size: 1.3rem;
+      color: #111;
+      line-height: 1.8;
+    }
+
+    .text-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
     .footer {
-      width: 100vw;
+      width: 100%;
       text-align: center;
       padding: 2rem 0;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(5px);
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
     }
 
     .footer div {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 18px;
+      margin-bottom: 1rem;
     }
 
     .footer a {
@@ -186,7 +163,6 @@
 
     .footer p {
       font-size: 0.9rem;
-      margin-top: 1rem;
       color: #444;
     }
 
@@ -204,15 +180,12 @@
       }
 
       .section {
-        width: 100vw;
         height: auto;
         padding: 3rem 1.5rem;
       }
 
       .welcome {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
       }
 
       .welcome img {
@@ -245,45 +218,36 @@
   </nav>
 
   <div class="container" id="scrollContainer">
-
     <div class="section resources">
-      <div class="section-content">
-        <h1>Academic Resources</h1>
-        <p>Study materials, notes, and curated links.</p>
-      </div>
+      <h1>Academic Resources</h1>
+      <p>Study materials, notes, and curated links.</p>
     </div>
 
     <div class="section outreach">
-      <div class="section-content">
-        <h1>Research & Outreach</h1>
-        <p>My work beyond the classroom – collaborations, talks, and more.</p>
-      </div>
+      <h1>Research & Outreach</h1>
+      <p>My work beyond the classroom – collaborations, talks, and more.</p>
     </div>
 
     <div class="section welcome">
       <img src="anora.jpg" alt="Anora Photo">
       <div class="text-content">
-        <h1>Hi There 👋</h1>
+        <h1>Welcome!</h1>
         <p>I’m Anora Anish — a first-year undergraduate student at Christ College, Irinjalakuda, Kerala, pursuing a Bachelor's in Physics with a minor in Mathematics.</p>
         <p>My journey so far has taken me through many explorations — from science and writing to introspection and curiosity. I believe learning doesn’t just happen in classrooms but also in the quiet moments of doubt, reflection, and discovery.</p>
         <p>I started this space to archive my thoughts, questions, and experiments — both academic and personal. Whether you’re a fellow student, a wanderer like me, or simply curious — I hope something here resonates with you.</p>
         <p>In my free time, I love exploring coding, reading philosophy, and journaling thoughts that don’t always have answers — but deserve to be voiced.</p>
-        <p>Thank you for stopping by!</p>
+        <p>Thank you for stopping by.</p>
       </div>
     </div>
 
     <div class="section about">
-      <div class="section-content">
-        <h1>About Me</h1>
-        <p>Student | Writer | Physics Enthusiast</p>
-      </div>
+      <h1>About Me</h1>
+      <p>Student | Writer | Physics Enthusiast</p>
     </div>
 
     <div class="section blog">
-      <div class="section-content">
-        <h1>Blog</h1>
-        <p>Academic notes and Personal writings</p>
-      </div>
+      <h1>Blog</h1>
+      <p>Academic notes and Personal writings</p>
     </div>
   </div>
 
@@ -295,7 +259,7 @@
       <a href="https://www.linkedin.com/in/anora-anish-0713b1270" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:your.anoraanish1706@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
       <a href="https://www.threads.net/@anoraanish" target="_blank"><i class="fab fa-threads"></i></a>
-      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-pen-nib"></i></a>
+      <a href="https://substack.com/@anoraanish" target="_blank"><i class="fas fa-rss"></i></a>
     </div>
     <p>&copy; 2025 Anora Anish. All rights reserved.</p>
   </div>
@@ -331,6 +295,7 @@
     function navigateTo(sectionIndex, labelText) {
       container.classList.add('hidden');
       label.classList.add('show');
+
       animateText('ANORA ANISH', labelText, () => {
         setTimeout(() => {
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;

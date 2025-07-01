@@ -50,7 +50,7 @@
     nav a i { font-size: 1.1rem; }
     nav a span { display: inline; }
 
-    .home-section {
+    .home-section, .section {
       min-height: 100vh;
       padding: 100px 2rem 4rem;
       display: flex;
@@ -199,6 +199,26 @@
     </div>
   </section>
 
+  <section class="section" id="about">
+  <h1>About</h1>
+  <p>This section shares more about me — my background, interests, and how I ended up pursuing a mix of science, writing, and curiosity.</p>
+</section>
+
+  <section class="section" id="blog">
+  <h1>Blog</h1>
+  <p>My personal writings live here — often in Malayalam, and often philosophical in tone. It's where I write about thoughts that stay with me.</p>
+</section>
+
+  <section class="section" id="resources">
+  <h1>Resources</h1>
+  <p>This space is for curated academic resources I’ve found helpful — or wish I had known about earlier in my journey.</p>
+</section>
+
+  <section class="section" id="outreach">
+  <h1>Outreach</h1>
+  <p>Here I share details of talks I’ve given and initiatives I’ve been part of — from mentoring peers to participating in educational efforts.</p>
+</section>
+
   <div class="footer">
     <div class="social-icons">
       <a href="https://www.facebook.com/share/1917eaUFd4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -215,7 +235,6 @@
   <script>
     const overlay = document.getElementById('overlay');
     const mainName = document.getElementById('mainName');
-    const navLinks = document.querySelectorAll('nav a');
     const nameText = "ANORA ANISH";
     let i = 0;
 

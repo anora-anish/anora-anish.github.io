@@ -67,7 +67,7 @@
       align-items: center;
       justify-content: center;
       background: url('bg.jpg') no-repeat center center/cover;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       color: black;
       text-align: center;
     }
@@ -104,6 +104,7 @@
       display: none;
       z-index: 1000;
       text-align: center;
+      white-space: pre-line;
     }
 
     .transition-label.show {
@@ -143,14 +144,21 @@
   <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
-    <button onclick="navigateTo(0, 'RESOURCES')"><i class="fas fa-book"></i> Resources</button>
-    <button onclick="navigateTo(1, 'OUTREACH')"><i class="fas fa-bullhorn"></i> Outreach</button>
-    <button onclick="navigateTo(2, 'HOME')"><i class="fas fa-home"></i> Home</button>
+    <button onclick="navigateTo(0, 'HOME')"><i class="fas fa-home"></i> Home</button>
+    <button onclick="navigateTo(1, 'RESOURCES')"><i class="fas fa-book"></i> Resources</button>
+    <button onclick="navigateTo(2, 'OUTREACH')"><i class="fas fa-bullhorn"></i> Outreach</button>
     <button onclick="navigateTo(3, 'ABOUT')"><i class="fas fa-user"></i> About</button>
     <button onclick="navigateTo(4, 'BLOG')"><i class="fas fa-pen-nib"></i> Blog</button>
   </nav>
 
   <div class="container" id="scrollContainer">
+    <div class="section welcome">
+      <img src="anora.jpg" alt="Anora Photo">
+      <div class="text-content">
+        <h1>Welcome!</h1>
+        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
+      </div>
+    </div>
     <div class="section resources">
       <h1>Academic Resources</h1>
       <p>Study materials, notes, and curated links.</p>
@@ -158,13 +166,6 @@
     <div class="section outreach">
       <h1>Research & Outreach</h1>
       <p>My work beyond the classroom – collaborations, talks, and more.</p>
-    </div>
-    <div class="section welcome">
-      <img src="anora.jpg" alt="Anora Photo">
-      <div class="text-content">
-        <h1>Welcome!</h1>
-        <p>Hi, I’m Anora. Explore my space of learning, reflection, and creativity.</p>
-      </div>
     </div>
     <div class="section about">
       <img src="anora.jpg" alt="Anora Photo">
@@ -183,11 +184,15 @@
     const label = document.getElementById('transitionLabel');
     const container = document.getElementById('scrollContainer');
 
+    window.onload = () => {
+      container.style.transform = 'translateX(0vw)';
+    };
+
     function animateText(finalText, subtext, callback) {
-      const chars = 'ANORISH'; // Short animation set
+      const chars = 'ANORISH';
       let iterations = 0;
       const total = finalText.length;
-      const duration = 800; // ~1.2 sec total
+      const duration = 600; // Shorter duration
       const step = duration / total;
       const interval = setInterval(() => {
         let display = '';
@@ -216,7 +221,7 @@
           container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
           container.classList.remove('hidden');
           label.classList.remove('show');
-        }, 100);
+        }, 150); // Slight pause
       });
     }
   </script>

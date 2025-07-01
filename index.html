@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anora Anish</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -37,8 +38,8 @@
       backdrop-filter: blur(5px);
       background-color: rgba(255, 255, 255, 0.4);
     }
-    .resources { }
-    .outreach { }
+    .resources {}
+    .outreach {}
     .welcome, .about {
       display: flex;
       flex-direction: row;
@@ -69,6 +70,7 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       display: flex;
       gap: 15px;
+      flex-wrap: wrap;
     }
     nav button {
       background: none;
@@ -77,6 +79,12 @@
       cursor: pointer;
       font-weight: bold;
       color: #333;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    nav button i {
+      font-size: 1.1rem;
     }
     nav button:hover {
       color: #4a148c;
@@ -100,17 +108,54 @@
     .transition-label.show {
       opacity: 1;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 100vw;
+        height: auto;
+        overflow-y: scroll;
+        transform: translateX(0);
+      }
+      .section {
+        width: 100vw;
+        height: auto;
+        padding: 3rem 1.5rem;
+      }
+      .welcome, .about {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px;
+        top: 10px;
+      }
+      nav button {
+        font-size: 0.9rem;
+      }
+      .transition-label {
+        font-size: 1.5rem;
+      }
+      .welcome img, .about img {
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="transition-label" id="transitionLabel">Loading...</div>
 
   <nav>
-    <button onclick="navigateTo(0, 'RESOURCES')">Resources</button>
-    <button onclick="navigateTo(1, 'OUTREACH')">Outreach</button>
-    <button onclick="navigateTo(2, 'HOME')">Home</button>
-    <button onclick="navigateTo(3, 'ABOUT')">About</button>
-    <button onclick="navigateTo(4, 'BLOG')">Blog</button>
+    <button onclick="navigateTo(0, 'RESOURCES')"><i class="fas fa-book"></i>Resources</button>
+    <button onclick="navigateTo(1, 'OUTREACH')"><i class="fas fa-bullhorn"></i>Outreach</button>
+    <button onclick="navigateTo(2, 'HOME')"><i class="fas fa-home"></i>Home</button>
+    <button onclick="navigateTo(3, 'ABOUT')"><i class="fas fa-user"></i>About</button>
+    <button onclick="navigateTo(4, 'BLOG')"><i class="fas fa-pen-nib"></i>Blog</button>
   </nav>
 
   <div class="container" id="scrollContainer">
@@ -170,10 +215,10 @@
       const container = document.getElementById('scrollContainer');
       label.classList.add('show');
       animateText('ANORA ANISH', labelText);
-      container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
       setTimeout(() => {
         label.classList.remove('show');
-      }, 1200);
+        container.style.transform = `translateX(-${sectionIndex * 100}vw)`;
+      }, 1000);
     }
   </script>
 </body>

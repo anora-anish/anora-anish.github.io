@@ -182,6 +182,75 @@ nav a span { display: inline; }
   line-height: 1.6;
 }
 
+/* Blog Tile Styling */
+.blog-tile {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
+  max-width: 900px;
+  width: 90%;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.blog-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+}
+
+.blog-tile h2 {
+  margin-bottom: 0.3rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.blog-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.blog-snippet {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.blog-full-content {
+  display: none;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.toggle-btn {
+  background: #4a148c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.toggle-btn:hover {
+  background: #6a1b9a;
+}
+
+.share-buttons {
+  margin-top: 15px;
+}
+
+.share-buttons a {
+  margin-right: 12px;
+  font-size: 1.3rem;
+  color: #444;
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   nav { gap: 14px; padding: 8px 16px; }

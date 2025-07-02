@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anora Anish</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" /> <!-- We'll use a shared CSS file -->
-  <script defer src="script.js"></script> <!-- Reuse your transition/typing script -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Transition Overlay -->
@@ -19,14 +18,14 @@
 
   <!-- Navigation Bar -->
   <nav>
-    <a href="resources.html" onclick="triggerTransition(event)"><i class="fas fa-book"></i><span>Resources</span></a>
-    <a href="about.html" onclick="triggerTransition(event)"><i class="fas fa-user"></i><span>About</span></a>
-    <a href="index.html" class="active" onclick="triggerTransition(event)"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="outreach.html" onclick="triggerTransition(event)"><i class="fas fa-hands-helping"></i><span>Outreach</span></a>
-    <a href="blog.html" onclick="triggerTransition(event)"><i class="fas fa-blog"></i><span>Blog</span></a>
+    <a href="resources.html" onclick="navigateWithTransition(event)"><i class="fas fa-book"></i><span>Resources</span></a>
+    <a href="about.html" onclick="navigateWithTransition(event)"><i class="fas fa-user"></i><span>About</span></a>
+    <a href="index.html" onclick="navigateWithTransition(event)"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="outreach.html" onclick="navigateWithTransition(event)"><i class="fas fa-hands-helping"></i><span>Outreach</span></a>
+    <a href="blog.html" onclick="navigateWithTransition(event)"><i class="fas fa-blog"></i><span>Blog</span></a>
   </nav>
 
-  <!-- Home Section -->
+  <!-- Welcome Section -->
   <section class="section" id="home">
     <div class="welcome">
       <img src="anora.jpg" alt="Anora Photo" />
@@ -51,5 +50,7 @@
     </div>
     <p>&copy; 2025 Anora Anish. All rights reserved.</p>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

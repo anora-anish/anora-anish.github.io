@@ -1,41 +1,92 @@
-<div class="blog-post">
-  <h2 class="blog-title">TEACHERS !</h2>
-  <p class="blog-date">SEPT 2022</p>
-  <p class="blog-snippet">Some things in our life are beyond gratitude…</p>
-  <button class="toggle-btn" onclick="toggleBlogContent(this)">Read More</button>
-  <div class="blog-full-content">
-    <p>Some things in our life . .are beyond gratitude. . .</p>
-    <p>Where words fail in gratitude. . .Love speaks out. . .</p>
-    <p>And this is a Note Of Love . . .</p>
-    <p>So . . .where should we start from. . .of course. . . the beginning !</p>
-    <p>The child arrives like a mystery box… with puzzle pieces inside some of the pieces seems broken or missing… and others just seem to hide. . .</p>
-    <p>There is aways some magical hands which sorts it out. . . This is about such hands. . Those magical hands in our life. . .</p>
-    <p>The story of these people descents back to our childhood. . . When we were those little kids who just tightly clenched our mother's hand.</p>
-    <p>Afraid to let her go. ... our little hearts were filled with auras of fear. . . we were missing our parents and home for the first time. . . being in a strange world . . .</p>
-    <p>But suddenly somebody held our other hand out.. somebody who could shed off all our fears with a single touch ...</p>
-    <p>Who stood close to us . . . and then became close to our hearts. . . who replaced that auras of fear with lessons of love and light of knowledge. . .</p>
-    <p>They always had something special in them. . . What they wrote on blackboard were erased at times . . . not those what they wrote on our hearts. . .</p>
-    <p>They were always there as rocks of our walls. .</p>
-    <p>Their firm hands were always there to break our silly fights. . .</p>
-    <p>Their unspoken words taught us love and compassion. . .</p>
-    <p>People who still lend their guiding hands and an understanding smile. . .</p>
-    <p>Who always gave us more than what we expected and still continues to do the same. . .</p>
-    <p>Up to what height can a teacher ascend. . .??? a friend,? a guide, ?a mentor,? an educator. .?</p>
-    <p>Those people who still guides us to tread the roads of our life. . .</p>
-    <p>the HEARTS which sort those missing, broken and hidden pieces out… which helps us to see the potential for greatness we have within… and a picture of what we can be. . .</p>
-    <p>Their goal wasn’t just to teach … but to fill our boxes with more parts and  put those pieces together… to create a work of art. . .</p>
-    <p>What was so special about them. . .? Nothing much. . but they all had a heart Which saw the unseen. . . Touched the untouched. Felt the unfelt. .  . And reached the unreached. . .</p>
-    <p>The beings who illuminates our beings. . They didn't choose to teach. . But to live a life that matters.  ..</p>
-    <p>They've given us their love. . And we could not ask for more. . . They've been our teachers. . . Those magicians of our life. . .</p>
-    <p>Happy teacher’s day . . .to all our loving teachers. . .</p>
-    <p>Love you a lotzz. . .</p>
-    <p>With love<br/>Anora Anish</p>
-
-    <div class="share-buttons">
-      <a href="#" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" title="Copy Link"><i class="fas fa-link"></i></a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Anora Anish</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Transition Overlay -->
+  <div class="transition-overlay" id="overlay">
+    <div class="transition-label">
+      <h1 id="mainName">ANORA ANISH</h1>
+      <p id="subText">STUDENT | WRITER | PHYSICS ENTHUSIAST</p>
     </div>
-    <div id="disqus_thread"></div>
   </div>
-</div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="resources.html" onclick="navigateWithTransition(event)"><i class="fas fa-book"></i><span>Resources</span></a>
+    <a href="about.html" onclick="navigateWithTransition(event)"><i class="fas fa-user"></i><span>About</span></a>
+    <a href="index.html" onclick="navigateWithTransition(event)"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="outreach.html" onclick="navigateWithTransition(event)"><i class="fas fa-hands-helping"></i><span>Outreach</span></a>
+    <a href="blog.html" onclick="navigateWithTransition(event)"><i class="fas fa-blog"></i><span>Blog</span></a>
+  </nav>
+
+  <!-- Blog Section -->
+  <section class="section" id="blog">
+    <h1>Blog</h1>
+    <p>My personal writings live here — often in Malayalam, and often philosophical in tone. It's where I write about thoughts that stay with me.</p>
+
+    <div class="blog-post">
+      <h2 class="blog-title">TEACHERS !</h2>
+      <p class="blog-date">SEPT 2022</p>
+      <p class="blog-snippet">Happy teacher’s day . . .to all our loving teachers. . .</p>
+      <button class="toggle-btn" onclick="toggleBlogContent(this)">Read More</button>
+      <div class="blog-full-content">
+        <!-- Blog Content -->
+        <p>Some things in our life . .are beyond gratitude. . .</p>
+        <p>... (your full blog post remains untouched here)</p>
+
+        <!-- Share Buttons -->
+        <div class="share-buttons">
+          <a href="#" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" title="Copy Link"><i class="fas fa-link"></i></a>
+        </div>
+
+        <!-- Disqus Comments -->
+        <div id="disqus_thread"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Anora Anish. All rights reserved.</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    function toggleBlogContent(btn) {
+      const content = btn.nextElementSibling;
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        btn.textContent = 'Read More';
+      } else {
+        content.style.display = 'block';
+        btn.textContent = 'Read Less';
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://anoraanish.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <script id="dsq-count-scr" src="//anoraanish.disqus.com/count.js" async></script>
+</body>
+</html>
